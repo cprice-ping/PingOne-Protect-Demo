@@ -1,0 +1,31 @@
+{
+  "name": "pingone-protect-demo",
+  "version": "0.0.1",
+  "type": "module",
+  "description": "Simple demo of PingOne Protect.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "fastify": "^4.15.0",
+    "@fastify/formbody": "^7.4.0",
+    "@fastify/static": "^6.10.1",
+    "@fastify/cookie": "^8.3.0",
+    "btoa": "^1.2.1",
+    "dotenv": "16.0.3"
+  },
+  "engines": {
+    "node": "20.x"
+  },
+  "repository": {
+    "url": "https://glitch.com/edit/#!/creds-notflux"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "fastify",
+    "pingone",
+    "protect"
+  ]
+}
