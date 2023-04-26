@@ -85,7 +85,7 @@ variable "env_name" {
 
 locals {
   # app_url = "https://${kubernetes_ingress_v1.package_ingress.spec[0].rule[0].host}"
-  app_url = "http://localhost:3000/callback.html"
+  app_url = "http://localhost:3000/dashboard.html"
 
   # Extract the DV Policies assigned to the DV Application
   # app_policy = { for i in davinci_application.initial_policy.policies : "${i.name}" => i.policy_id }
@@ -96,4 +96,11 @@ locals {
   canada         = var.region == "Canada" ? "ca" : ""
   asia_pacific   = var.region == "AsiaPacific" ? "asia" : ""
   pingone_domain = coalesce(local.north_america, local.europe, local.canada, local.asia_pacific)
+
+  # Translate the Region to a Short Code
+  na            = var.region == "NorthAmerica" ? "NA" : ""
+  eu            = var.region == "Europe" ? "EU" : ""
+  ca            = var.region == "Canada" ? "CA" : ""
+  ap            = var.region == "AsiaPacific" ? "AP" : ""
+  pingone_short = coalesce(local.na, local.eu, local.ca, local.ap)
 }

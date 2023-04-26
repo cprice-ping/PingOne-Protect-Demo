@@ -35,7 +35,7 @@ fastify.register(import("@fastify/cookie"));
 
 // Run the server and report out to the logs
 fastify.listen(
-  { port: process.env.appPort, host: "0.0.0.0" },
+  { port: 3000, host: "0.0.0.0" },
   function (err, address) {
     if (err) {
       console.error(err);
@@ -46,12 +46,20 @@ fastify.listen(
 );
 
 /******************************************
+ * Client - Get Runtime Details
+ * Endpoint to pass deployed environment data to the client
+ *****************************************/
+fastify.get("/getRuntimeDetails", (req, res) => {
+    res.send({envId: process.env.envId, clientId: process.env.oidcClientId })
+})
+
+/******************************************
 * PingOne Risk - Evaluation request
 *
 * This call is on the Server-Side because it requires a P1 Worker token
 ******************************************/
 fastify.all("/getRiskDecision", (req, res) => { 
-    //console.log("Request: ", req) 
+    
     const username = req.body.username
     
     console.log("Getting Risk Eval for: ", username)
@@ -75,7 +83,7 @@ fastify.all("/getRiskDecision", (req, res) => {
               "id": "Signals SDK demo",
               "name": "Signals SDK demo"
           },
-          "ip": process.env.localIP || req.headers['x-forwarded-for'].split(",")[0],
+          "ip": req.body.ipAddress || req.headers['x-forwarded-for'].split(",")[0],
           "sdk": {
             "signals": {
                 "data": req.body.sdkpayload // Signals SDK payload from Client
@@ -91,9 +99,6 @@ fastify.all("/getRiskDecision", (req, res) => {
           },
           "sharingType": "PRIVATE", 
           "origin": "FACILE_DEMO" 
-        },
-        "riskPolicySet": {
-          "id": process.env.riskPolicyId // This is the Policy your asking for a decision from
         }
       }
       
@@ -120,7 +125,7 @@ fastify.all("/getRiskDecision", (req, res) => {
   ***********************************************/
   function getPingOneToken(cb) {
     const url="https://auth.pingone.com/"+process.env.envId+"/as/token"
-    const basicAuth=btoa(process.env.clientId+":"+process.env.clientSecret)
+    const basicAuth=btoa(process.env.workerId+":"+process.env.workerSecret)
 
     var urlencoded = new URLSearchParams();
     urlencoded.append("grant_type", "client_credentials");

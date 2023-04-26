@@ -25,18 +25,21 @@ onPingOneSignalsReady(function () {
 
 // Perform Risk Eval on button click event
 // This is a server-side call due to the P1 Protect request needing a Worker token
-function getRiskDecision() {
+async function getRiskDecision() {
     
+    // External service to figure out the browser's ipAddress (v4)
+    const ipAddress = await fetch("https://ip4.seeip.org/json").then(res => res.json())
+
     let body = { 
         "username" : document.getElementById("floatInputEmail").value,
-        "sdkpayload": document.getElementById("sdkPayload").innerText 
+        "sdkpayload": document.getElementById("sdkPayload").innerText,
+        "ipAddress": ipAddress.ip 
     } 
     
     // Pass payload to Server-side to perform the Risk Eval call
     // Server contains the P1 Worker secrets to make the Eval call
     fetch("/getRiskDecision", {
       headers: {
-        sdkpayload: document.getElementById("sdkPayload").innerText,
         "content-type": "application/json"
       },
       method: "post",

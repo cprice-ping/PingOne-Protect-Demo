@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <base href="/" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PingOne Protect Demo</title>
+    <link rel="icon" href="/images/favicon.png" type="image/png" sizes="48x48" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body class="dashboard">
+    <header>
+      <div class="logo">
+        <h1>
+          <strong><span class="logo-b">B</span><span class="logo-x">X</span></strong> 
+          <img class="logo-icon" src="/images/icon.svg" /> 
+          <span class="logo-workforce">Workforce</span>
+        </h1>
+      </div>
+      <div class="header-buttons">
+        <button>Who We Are</button>
+        <button>Employee Directory</button>
+        <button>Tools and Resources</button>
+      </div>
+    </header>
+    <section class="main row">
+      <div class="column">
+        <h1>Welcome!</h1>
+        <div class="card">
+          <div class="photo"><img src="/images/avatar.jpg" /></div>
+          <div class="info">
+            <h2 id="name"></h2>
+            <h3>Software Engineer</h3>
+            <p id="email"></p>
+            <p>(555) 555-1234</p>
+            <p>Product Engineering</p>
+            <p>United States</p>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="logout-container"><button id="logout" class="link">Log Out</button></div>
+        <div class="tab-container">
+          <div class="tabs">
+            <span data-show-tab="access-token">Access Token</span>
+            <span data-show-tab="id-token">ID Token</span>
+            <span data-show-tab="user-info">User Info</span>
+          </div>
+          <div class="tab-body">
+            <div id="access-token"></div>
+            <div id="id-token"></div>
+            <div id="user-info"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script type="module" src="https://unpkg.com/@ping-identity-developer-enablement/dev-enablement-oidc@0.1.0-beta/dist/index.js"></script>
+    <script type="text/javascript" src="/scripts/oidc-auth.js"></script>
+    <script>
+      // Set up tabs, keeping this here since implementation doesn't matter for OIDC Library
+      const allTabs = document.querySelectorAll('.tab-container .tabs span');
+      const allTabBodies = document.querySelectorAll('.tab-container .tab-body div');
+      
+      allTabs.forEach(tab => { 
+        tab.addEventListener('click', () => {
+          allTabs.forEach(t => t.classList.remove('active'));
+          tab.classList.add('active');
+          allTabBodies.forEach(tabBody => tabBody.style.display = null);
+          document.getElementById(tab.dataset.showTab).style.display = 'block';
+        });
+      });
+
+      allTabs[0].classList.add('active');
+      allTabBodies[0].style.display = 'block';
+    </script>
+  </body>
+</html>

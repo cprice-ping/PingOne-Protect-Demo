@@ -109,6 +109,36 @@ resource "pingone_sign_on_policy_action" "app_logon_first" {
   }
 }
 
+# Create Worker App that can be used in DV Connectors
+resource "pingone_application" "dv_worker_app" {
+  environment_id = pingone_environment.release_environment.id
+  name           = "DV Worker App"
+  enabled        = true
+
+  oidc_options {
+    type                        = "WORKER"
+    grant_types                 = ["CLIENT_CREDENTIALS"]
+    token_endpoint_authn_method = "CLIENT_SECRET_BASIC"
+  }
+}
+
+resource "pingone_application_role_assignment" "id_admin" {
+  environment_id = pingone_environment.release_environment.id
+  application_id = pingone_application.dv_worker_app.id
+  role_id        = data.pingone_role.identity_data_admin.id
+
+  scope_environment_id = pingone_environment.release_environment.id
+}
+
+resource "pingone_application_role_assignment" "env_admin" {
+  environment_id = pingone_environment.release_environment.id
+  application_id = pingone_application.dv_worker_app.id
+  role_id        = data.pingone_role.environment_admin.id
+
+  scope_environment_id = pingone_environment.release_environment.id
+}
+
+# Create OIDC Login App
 resource "pingone_application" "app_logon" {
   environment_id = pingone_environment.release_environment.id
   enabled        = true
@@ -120,6 +150,7 @@ resource "pingone_application" "app_logon" {
     response_types              = ["CODE", "TOKEN", "ID_TOKEN"]
     token_endpoint_authn_method = "NONE"
     redirect_uris               = ["${local.app_url}"]
+    post_logout_redirect_uris   = ["http://localhost:3000"]
   }
 }
 
@@ -195,11 +226,11 @@ resource "pingone_application_resource_grant" "app_login_pingone" {
   ]
 }
 
-resource "pingone_application_sign_on_policy_assignment" "app_logon" {
+resource "pingone_application_flow_policy_assignment" "app_logon" {
   environment_id = pingone_environment.release_environment.id
   application_id = pingone_application.app_logon.id
 
-  sign_on_policy_id = pingone_sign_on_policy.app_logon.id
+  flow_policy_id = davinci_application.initial_policy.policy.*.policy_id[0]
 
   priority = 1
 }
