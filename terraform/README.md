@@ -78,6 +78,6 @@ If successful, you should be given the URL of the application that you can acces
 ```hcl
 k8s_deploy_name = "{{ Name for k8s to use in deployment}}"
 k8s_namespace = "{{ k8s namespace to deploy into}}"
-app_image_name="pricecs/p1-protect-demo:0.0.2"
+app_image_name="pricecs/p1-protect-demo:latest"
 k8s_deploy_domain="{{ DNS domain to use for Ingress }}"
 ```
