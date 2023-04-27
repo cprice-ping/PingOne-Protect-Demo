@@ -20,7 +20,7 @@ output "dv_worker_secret" {
 }
 
 output "oidc_url" {
-  value = "https://auth.pingone.${local.pingone_domain}/${pingone_environment.release_environment.id}/as/authorize?client_id=${pingone_application.app_logon.oidc_options[0].client_id}&response_type=token id_token&scope=openid email profile"
+  value = "https://auth.pingone.${local.pingone_domain}/${pingone_environment.release_environment.id}/as/authorize?client_id=${pingone_application.app_logon.oidc_options[0].client_id}&response_type=token id_token&scope=openid email profile&redirect_uri=https://decoder.pingidentity.cloud/hybrid"
 }
 
 output "docker_run_command" {
