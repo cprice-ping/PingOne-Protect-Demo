@@ -13,10 +13,10 @@
     "pingOneAuthenticationConnector",
     "errorConnector"
   ],
-  "createdDate": 1682606597503,
-  "currentVersion": 23,
+  "createdDate": 1682626639495,
+  "currentVersion": 24,
   "customerId": "77f1978ad8c8c3c050419e8b14dfe244",
-  "deployedDate": 1682606812629,
+  "deployedDate": 1682626640051,
   "description": "Imported on Sat Apr 22 2023 21:16:18 GMT+0000 (Coordinated Universal Time)",
   "flowStatus": "enabled",
   "inputSchemaCompiled": {
@@ -29,7 +29,7 @@
   },
   "isInputSchemaSaved": false,
   "name": "PingOne Protect - Demo",
-  "publishedVersion": 23,
+  "publishedVersion": 24,
   "settings": {
     "csp": "worker-src 'self' blob:; script-src 'self' https://cdn.jsdelivr.net https://code.jquery.com https://devsdk.singularkey.com http://cdnjs.cloudflare.com 'unsafe-inline' 'unsafe-eval';",
     "css": ".companyLogo {\n    /* Ping Logo  */\n    content: url(\"https://assets.pingone.com/ux/ui-library/5.0.2/images/logo-pingidentity.png\");\n    width: 65px;\n    height: 65px;\n}",
@@ -47,9 +47,9 @@
   "trigger": {
     "type": "AUTHENTICATION"
   },
-  "updatedDate": 1682606812630,
+  "updatedDate": 1682627914511,
   "flowId": "ff10cbff74cb3b40e1bf6b7fcba7a15b",
-  "versionId": 23,
+  "versionId": 24,
   "graphData": {
     "elements": {
       "nodes": [
@@ -580,7 +580,7 @@
           "data": {
             "id": "dkvzo98ihv",
             "nodeType": "CONNECTION",
-            "connectionId": "94141bf2f1b9b59a5f5365ff135e02bb",
+            "connectionId": "pingOneSSOConnector",
             "connectorId": "pingOneSSOConnector",
             "name": "PingOne",
             "label": "PingOne",
@@ -1277,7 +1277,7 @@
           "data": {
             "id": "u8otjdlls5",
             "nodeType": "CONNECTION",
-            "connectionId": "94141bf2f1b9b59a5f5365ff135e02bb",
+            "connectionId": "pingOneSSOConnector",
             "connectorId": "pingOneSSOConnector",
             "name": "PingOne",
             "label": "PingOne",
@@ -1749,7 +1749,7 @@
           "data": {
             "id": "e7p5rw54lf",
             "nodeType": "CONNECTION",
-            "connectionId": "94141bf2f1b9b59a5f5365ff135e02bb",
+            "connectionId": "pingOneSSOConnector",
             "connectorId": "pingOneSSOConnector",
             "name": "PingOne",
             "label": "PingOne",
@@ -1834,7 +1834,8 @@
         {
           "data": {
             "id": "6u22mpc2pe",
-            "nodeType": "EVAL"
+            "nodeType": "EVAL",
+            "properties": {}
           },
           "position": {
             "x": 1665,
@@ -1857,10 +1858,7 @@
             "source": "xp9cpp27tw",
             "target": "e7p5rw54lf"
           },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
+          "position": {},
           "group": "edges",
           "removed": false,
           "selected": false,
@@ -1876,10 +1874,7 @@
             "source": "9lhm6gzgmv",
             "target": "u8otjdlls5"
           },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
+          "position": {},
           "group": "edges",
           "removed": false,
           "selected": false,
@@ -1895,10 +1890,7 @@
             "source": "ktounrqqdr",
             "target": "62fwd717nz"
           },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
+          "position": {},
           "group": "edges",
           "removed": false,
           "selected": false,
@@ -1914,10 +1906,7 @@
             "source": "41epemj141",
             "target": "vo5oi5vrnk"
           },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
+          "position": {},
           "group": "edges",
           "removed": false,
           "selected": false,
@@ -1933,10 +1922,7 @@
             "source": "4zjizi23c6",
             "target": "z4g8c5z5pw"
           },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
+          "position": {},
           "group": "edges",
           "removed": false,
           "selected": false,
@@ -1952,10 +1938,7 @@
             "source": "pdk9atuwtv",
             "target": "t5lim69t2u"
           },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
+          "position": {},
           "group": "edges",
           "removed": false,
           "selected": false,
@@ -1971,10 +1954,7 @@
             "source": "zwtp3sdm56",
             "target": "rg3ic2c0hz"
           },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
+          "position": {},
           "group": "edges",
           "removed": false,
           "selected": false,
@@ -1990,10 +1970,7 @@
             "source": "dkvzo98ihv",
             "target": "zwtp3sdm56"
           },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
+          "position": {},
           "group": "edges",
           "removed": false,
           "selected": false,
@@ -2009,10 +1986,7 @@
             "source": "k823tac84t",
             "target": "8egotqidwd"
           },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
+          "position": {},
           "group": "edges",
           "removed": false,
           "selected": false,
@@ -2028,10 +2002,7 @@
             "source": "5nxx850dhp",
             "target": "bp2z5wqlc7"
           },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
+          "position": {},
           "group": "edges",
           "removed": false,
           "selected": false,
@@ -2047,10 +2018,7 @@
             "source": "8egotqidwd",
             "target": "dkvzo98ihv"
           },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
+          "position": {},
           "group": "edges",
           "removed": false,
           "selected": false,
@@ -2066,10 +2034,7 @@
             "source": "z4g8c5z5pw",
             "target": "13xqy80afe"
           },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
+          "position": {},
           "group": "edges",
           "removed": false,
           "selected": false,
@@ -2085,10 +2050,7 @@
             "source": "zwtp3sdm56",
             "target": "d8rlfiowz6"
           },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
+          "position": {},
           "group": "edges",
           "removed": false,
           "selected": false,
@@ -2104,10 +2066,7 @@
             "source": "d8rlfiowz6",
             "target": "w3mp2tf59a"
           },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
+          "position": {},
           "group": "edges",
           "removed": false,
           "selected": false,
@@ -2123,10 +2082,7 @@
             "source": "w3mp2tf59a",
             "target": "suagay9x82"
           },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
+          "position": {},
           "group": "edges",
           "removed": false,
           "selected": false,
@@ -2142,10 +2098,7 @@
             "source": "rg3ic2c0hz",
             "target": "9lhm6gzgmv"
           },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
+          "position": {},
           "group": "edges",
           "removed": false,
           "selected": false,
@@ -2161,10 +2114,7 @@
             "source": "5nxx850dhp",
             "target": "k823tac84t"
           },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
+          "position": {},
           "group": "edges",
           "removed": false,
           "selected": false,
@@ -2180,10 +2130,7 @@
             "source": "bxnz7tatva",
             "target": "7ilwds864d"
           },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
+          "position": {},
           "group": "edges",
           "removed": false,
           "selected": false,
@@ -2199,10 +2146,7 @@
             "source": "7ilwds864d",
             "target": "4cma64i9o0"
           },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
+          "position": {},
           "group": "edges",
           "removed": false,
           "selected": false,
@@ -2218,10 +2162,7 @@
             "source": "4cma64i9o0",
             "target": "lassvp3xht"
           },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
+          "position": {},
           "group": "edges",
           "removed": false,
           "selected": false,
@@ -2237,10 +2178,7 @@
             "source": "lassvp3xht",
             "target": "v5mpqlcmdj"
           },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
+          "position": {},
           "group": "edges",
           "removed": false,
           "selected": false,
@@ -2276,10 +2214,7 @@
             "source": "ry8nlhbt6v",
             "target": "xjxflqgwet"
           },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
+          "position": {},
           "group": "edges",
           "removed": false,
           "selected": false,
@@ -2295,10 +2230,7 @@
             "source": "suagay9x82",
             "target": "xp9cpp27tw"
           },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
+          "position": {},
           "group": "edges",
           "removed": false,
           "selected": false,
@@ -2314,10 +2246,7 @@
             "source": "a04dygbseg",
             "target": "zltnl5ltce"
           },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
+          "position": {},
           "group": "edges",
           "removed": false,
           "selected": false,
@@ -2353,10 +2282,7 @@
             "source": "vo5oi5vrnk",
             "target": "ry8nlhbt6v"
           },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
+          "position": {},
           "group": "edges",
           "removed": false,
           "selected": false,
@@ -2392,10 +2318,7 @@
             "source": "yv2vzd50ts",
             "target": "m86vuvgv0q"
           },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
+          "position": {},
           "group": "edges",
           "removed": false,
           "selected": false,
@@ -2411,10 +2334,7 @@
             "source": "90vgvhuxww",
             "target": "rwjxtgajvg"
           },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
+          "position": {},
           "group": "edges",
           "removed": false,
           "selected": false,
@@ -2430,10 +2350,7 @@
             "source": "rwjxtgajvg",
             "target": "le2v2ufj9x"
           },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
+          "position": {},
           "group": "edges",
           "removed": false,
           "selected": false,
@@ -2449,10 +2366,7 @@
             "source": "le2v2ufj9x",
             "target": "vo5oi5vrnk"
           },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
+          "position": {},
           "group": "edges",
           "removed": false,
           "selected": false,
@@ -2468,10 +2382,7 @@
             "source": "e7p5rw54lf",
             "target": "yv2vzd50ts"
           },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
+          "position": {},
           "group": "edges",
           "removed": false,
           "selected": false,
@@ -2487,10 +2398,7 @@
             "source": "yv2vzd50ts",
             "target": "wo4sa3va07"
           },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
+          "position": {},
           "group": "edges",
           "removed": false,
           "selected": false,
@@ -2506,10 +2414,7 @@
             "source": "8zz02zdat8",
             "target": "ktounrqqdr"
           },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
+          "position": {},
           "group": "edges",
           "removed": false,
           "selected": false,
@@ -2525,10 +2430,7 @@
             "source": "ktounrqqdr",
             "target": "3ddarjicvj"
           },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
+          "position": {},
           "group": "edges",
           "removed": false,
           "selected": false,
@@ -2544,10 +2446,7 @@
             "source": "t5lim69t2u",
             "target": "f30cw90zzb"
           },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
+          "position": {},
           "group": "edges",
           "removed": false,
           "selected": false,
@@ -2563,10 +2462,7 @@
             "source": "f30cw90zzb",
             "target": "5nxx850dhp"
           },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
+          "position": {},
           "group": "edges",
           "removed": false,
           "selected": false,
@@ -2582,10 +2478,7 @@
             "source": "u8otjdlls5",
             "target": "6u22mpc2pe"
           },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
+          "position": {},
           "group": "edges",
           "removed": false,
           "selected": false,
@@ -2601,10 +2494,7 @@
             "source": "6u22mpc2pe",
             "target": "2444rnx94n"
           },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
+          "position": {},
           "group": "edges",
           "removed": false,
           "selected": false,
@@ -2620,10 +2510,7 @@
             "source": "2444rnx94n",
             "target": "a04dygbseg"
           },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
+          "position": {},
           "group": "edges",
           "removed": false,
           "selected": false,
@@ -2643,10 +2530,7 @@
     "maxZoom": 1e+50,
     "panningEnabled": true,
     "userPanningEnabled": true,
-    "pan": {
-      "x": 0,
-      "y": 0
-    },
+    "pan": {},
     "boxSelectionEnabled": true,
     "renderer": {
       "name": "null"
@@ -2654,7 +2538,7 @@
   },
   "inputSchema": [],
   "flowColor": "#ff661c",
-  "savedDate": 1682606597384,
+  "savedDate": 1682626639174,
   "variables": [],
   "connections": []
 }
