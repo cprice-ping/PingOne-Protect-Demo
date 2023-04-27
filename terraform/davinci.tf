@@ -160,7 +160,7 @@ resource "davinci_flow" "initial_flow" {
   }
   connection_link {
     id   = data.davinci_connections.pingone.connector_ids[0]
-    name = "PingOne SSO"
+    name = "PingOne"
   }
   connection_link {
     id   = davinci_connection.pingone_protect.id
