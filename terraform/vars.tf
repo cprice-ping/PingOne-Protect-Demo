@@ -53,6 +53,7 @@ variable "env_name" {
   description = "Name used for the PingOne Environment"
 }
 
+## Uncomment these if you're deploying into k8s
 # variable "k8s_namespace" {
 #   type        = string
 #   description = "K8s namespace for container deployment"
@@ -84,11 +85,9 @@ variable "env_name" {
 # }
 
 locals {
+  ## Swap the `app_url` if you're deploying into k8s
   # app_url = "https://${kubernetes_ingress_v1.package_ingress.spec[0].rule[0].host}"
-  app_url = "http://localhost:3000/dashboard.html"
-
-  # Extract the DV Policies assigned to the DV Application
-  # app_policy = { for i in davinci_application.initial_policy.policies : "${i.name}" => i.policy_id }
+  app_url = "http://localhost:3000"
 
   # Translate the Region to a Domain suffix
   north_america  = var.region == "NorthAmerica" ? "com" : ""
