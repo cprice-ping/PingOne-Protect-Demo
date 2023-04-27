@@ -43,6 +43,7 @@ For things that cannot (yet) be performed with Terraform:
 
 * Ask Product to enable the P1 Protect FFs in the created environment
 * Add the Protect Predictors to the **default** Protect Policy
+* Modify the score of the New Device Predictor to **50** in the Policy
 
 ### Manual DaVinci Changes
 
