@@ -30,22 +30,12 @@ resource "pingone_environment" "release_environment" {
   service {
     type = "SSO"
   }
-  # service {
-  #   type = "MFA"
-  # }
   service {
     type = "Risk"
   }
-  # service {
-  #   type = "Authorize"
-  # }
   service {
     type = "DaVinci"
   }
-
-  # service {
-  #   type = "Verify"
-  # }
 }
 
 # Grant Roles to Admin User
@@ -82,31 +72,6 @@ resource "pingone_population" "app" {
 
   name        = "Application Users"
   description = "Population containing App Users"
-}
-
-# PingOne Sign-On Policy
-resource "pingone_sign_on_policy" "app_logon" {
-  environment_id = pingone_environment.release_environment.id
-
-  name        = "App_Logon"
-  description = "Simple Login with Registration"
-}
-
-resource "pingone_sign_on_policy_action" "app_logon_first" {
-  environment_id    = pingone_environment.release_environment.id
-  sign_on_policy_id = pingone_sign_on_policy.app_logon.id
-
-  registration_local_population_id = pingone_population.app.id
-
-  priority = 1
-
-  conditions {
-    last_sign_on_older_than_seconds = 3600 // 1 Hour
-  }
-
-  login {
-    recovery_enabled = true
-  }
 }
 
 # Create Worker App that can be used in DV Connectors

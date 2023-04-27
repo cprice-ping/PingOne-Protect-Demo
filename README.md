@@ -20,55 +20,51 @@ A set of [DaVinci](/davinci/) flows are included and are used by the Sample Appl
 
 The Flows can be deployed with Terraform, or manually imported into a DaVinci instance.
 
+## PingOne Configuration
+
+Several components of PingOne are needed for this demonstration:
+
+* Environment
+  * SSO
+  * Davinci
+  * Protect
+* Applications
+  * Worker App
+  * OIDC Web App
+* Protect
+  * Predictors
+  * Policy
+
+All *except* the Protect configuration can be deployed with [Terraform](./terraform)
+
+### Manual PingOne configuration
+
+For things that cannot (yet) be performed with Terraform:
+
+* Ask Product to enable the P1 Protect FFs in the created environment
+* Add the Protect Predictors to the **default** Protect Policy
+
+### Manual DaVinci Changes
+
+Currently, the `skRisk` component that is embedded in the Custom HTML Template requires the `envId` to be added. This isn't possible using Terraform.
+
+* Launch DaVinci and open the *PingOne Protect - Demo* Flow
+* Select the *Custom HTML Template - Start Form* node
+  * Scroll to the bottom of the HTML
+  * Click on the `skRisk` component
+  * Add your EnvId to the component
+  * ![skRisk Component](./davinci/skRisk%20Component.png)
+
 ## Sample Application
 
-A simple application is also included that can be used to demonstrate PingOne Protect and the Signals SDK.
+A sample application is also included that can be used to demonstrate PingOne Protect and the Signals SDK.
 
-The default page shows native JS integration with Signals SDK
+Information about deploying the app can be found [here](./app/)
 
-It also shows how to perform the P1 Protect Evaluation call from within your application framework. Since this call requires a P1 Worker token, it **must** be made somewhere other than the client application - in this application, it's a Fastify service.
+### **No App**
 
-### Deployment
-
-There are several ways to deploy the sample application:
-
-* Local NodeJS (v20.x)
-* Local Docker
-* K8s
-* No App
-
-#### **Local NodeJS**
-
-Switch to the `/app` folder.
-Create a `.env` file with the following:
+You can trigger the DaVinci Flow without the App using a URL to make an OIDC request.
 
 ```zsh
-# P1 Protect
-envId={{ Your deployed Environment }}
-oidcClientId={{ Client_ID of the OIDC login app }}
-workerId={{ Client_ID of a Worker App (Client_Secret_Basic) }}
-workerSecret={{ Client_Secret of the Worker App }}
-```
-
-The application should launch and be available on [https://localhost:3000](https://localhost:3000)
-
-
-#### **Local Docker**
-
-The sample app is also available using Docker:
-
-```zsh
-docker run -p 3000:3000 -e envId={{ Your deployed Environment }} -e oidcClientId={{ Client_ID of the OIDC login app }} -e workerId={{ Client_ID of a Worker App (Client_Secret_Basic) }} -e workerSecret={{ Client_Secret of the Worker App }} pricecs/p1-protect-demo:latest
-```
-
-#### Kubernetes
-
-You can deploy the app into Kubernetes using Terraform.
-
-#### **No App**
-
-You can trigger the DaVinci Flow without the App using a URL to make an OIDC request. 
-
-```
 https://auth.pingone.com/{{ Your Environment ID }}/as/authorize?client_id={{ OIDC Client ID }}&response_type=token id_token&redirect_uri=https://decoder.pingidentity.cloud/hybrid&scope=openid profile email
 ```

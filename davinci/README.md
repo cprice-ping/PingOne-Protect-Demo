@@ -14,6 +14,14 @@ Not only does that generate the SDK Payload, DV also makes the Evaluation reques
 
 In all cases, the `evalLevel` is placed into the `id_token` so it can be accessed by the application.
 
+## PingOne Protect - Demo Flow
+
+This flow presents a User Journey that covers *both* Registration and Login.
+
+A User is first asked for their Email Address, and DV determines if that has already been registered. If so, a Password form is displayed; if not, a Registration form is presented.
+
+The Signals SDK is injected on the initial Form, and a Threat Assessment is made during either branch of the journey.
+
 ## New Device notification
 
 The Threat assessment is performed in a SubFlow that detects that a New Device is being used, and will send a PingOne Notification to the Email address of the User.

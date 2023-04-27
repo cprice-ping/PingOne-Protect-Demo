@@ -1,14 +1,10 @@
 # Terraform
 
-This terraform is to deploy a set of configuration to demonstrate PingOne Protect.
-
-## Terraform
-
 The HCL contains resources for PingOne \ DaVinci.  
 
 Optionally, there are additional HCL using the K8s provider that can be used to deploy the application image with an associated Ingress to allow browser access to the container.
 
-### Providers
+## Providers
 
 The Terraform here uses multiple providers:
 
@@ -18,7 +14,7 @@ The Terraform here uses multiple providers:
 | **DaVinci** | PingOne DaVinci Flow & Application |
 | **[Optional] Kubernetes** | Configure k8s infrastructure components |
 
-### Terraform Resources
+## Terraform Resources
 
 This is what the HCL will create
 
@@ -37,7 +33,7 @@ This is what the HCL will create
 | K8s | Service | Service pointing to the deployed app |
 | K8s | Ingress | Inbound access to deployed app |
 
-### Variables
+## Variables
 
 In the `/terraform` folder, create a `terraform.tfvars` file with the following:
 
@@ -54,7 +50,7 @@ worker_secret = "{{workerSecret}}"
 env_name = "{{PingOne Environment Name to create}}"
 ```
 
-### **Deployment**
+## **Deployment**
 
 At a command line:
 
@@ -73,7 +69,7 @@ terraform apply —auto-approve
 
 If successful, you should be given the URL of the application that you can access with a browser
 
-#### **Deploying the Demo App**
+### **Deploying the Demo App**
 
 * Copy the `/terraform/app-deploy/k8s.tf` into the `/terraform` folder.
 * Uncomment the lines in `/terraform/vars.tf`
@@ -82,5 +78,5 @@ If successful, you should be given the URL of the application that you can acces
 ```hcl
 k8s_deploy_name = "{{ Name for k8s to use in deployment}}"
 k8s_namespace = "{{ k8s namespace to deploy into}}"
-app_image_name="pricecs/p1-protect-demo:latest"
+app_image_name="pricecs/p1-protect-demo:0.0.2"
 k8s_deploy_domain="{{ DNS domain to use for Ingress }}"
