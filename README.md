@@ -35,6 +35,7 @@ There are several ways to deploy the sample application:
 * Local NodeJS (v20.x)
 * Local Docker
 * K8s
+* No App
 
 #### **Local NodeJS**
 
@@ -63,3 +64,11 @@ docker run -p 3000:3000 -e envId={{ Your deployed Environment }} -e oidcClientId
 #### Kubernetes
 
 You can deploy the app into Kubernetes using Terraform.
+
+#### **No App**
+
+You can trigger the DaVinci Flow without the App using a URL to make an OIDC request. 
+
+```
+https://auth.pingone.com/{{ Your Environment ID }}/as/authorize?client_id={{ OIDC Client ID }}&response_type=token id_token&redirect_uri=https://decoder.pingidentity.cloud/hybrid&scope=openid profile email
+```
