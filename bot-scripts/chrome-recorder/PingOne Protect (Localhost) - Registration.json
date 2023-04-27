@@ -1,0 +1,327 @@
+{
+    "title": "PingOne Protect (Localhost) - Registration",
+    "steps": [
+        {
+            "type": "setViewport",
+            "width": 1092,
+            "height": 1063,
+            "deviceScaleFactor": 1,
+            "isMobile": false,
+            "hasTouch": false,
+            "isLandscape": false
+        },
+        {
+            "type": "navigate",
+            "url": "chrome://newtab/",
+            "assertedEvents": [
+                {
+                    "type": "navigation",
+                    "url": "chrome://newtab/",
+                    "title": "New Incognito Tab"
+                }
+            ]
+        },
+        {
+            "type": "navigate",
+            "url": "http://localhost:3000/",
+            "assertedEvents": [
+                {
+                    "type": "navigation",
+                    "url": "http://localhost:3000/",
+                    "title": ""
+                }
+            ]
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/DaVinci Integration"
+                ],
+                [
+                    "a.text-start"
+                ],
+                [
+                    "xpath//html/body/div[1]/div/div[1]/div/div/a[1]"
+                ],
+                [
+                    "pierce/a.text-start"
+                ],
+                [
+                    "text/DaVinci Integration"
+                ]
+            ],
+            "offsetY": 10,
+            "offsetX": 56.859375,
+            "assertedEvents": [
+                {
+                    "type": "navigation",
+                    "url": "http://localhost:3000/oidc.html",
+                    "title": "PingOne Protect - SignalsSDK"
+                }
+            ]
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Launch OIDC Flow"
+                ],
+                [
+                    "#loginButton"
+                ],
+                [
+                    "xpath///*[@id=\"loginButton\"]"
+                ],
+                [
+                    "pierce/#loginButton"
+                ],
+                [
+                    "text/Launch OIDC Flow"
+                ]
+            ],
+            "offsetY": 20,
+            "offsetX": 99,
+            "assertedEvents": [
+                {
+                    "type": "navigation",
+                    "url": "https://auth.pingone.com/c85fe8e8-a62a-4acd-a4fa-8742ca4159e5/as/authorize?response_type=code&client_id=f53cbbc9-4273-4944-9178-d1de58324b64&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fdashboard.html&scope=openid+profile&state=s86i5Lh8UmtvsfbW1jj3&nonce=jtMCE6xD31&code_challenge=sntgP91OFfnkS2tQTW0jPF4r4TPFg08YhW_cE8FmXQA&code_challenge_method=S256",
+                    "title": ""
+                }
+            ]
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Your email address"
+                ],
+                [
+                    "#username"
+                ],
+                [
+                    "xpath///*[@id=\"username\"]"
+                ],
+                [
+                    "pierce/#username"
+                ]
+            ],
+            "offsetY": 24.703125,
+            "offsetX": 134
+        },
+        {
+            "type": "change",
+            "value": "newuser1@mailinator.com",
+            "selectors": [
+                [
+                    "aria/YOUR EMAIL ADDRESS"
+                ],
+                [
+                    "#username"
+                ],
+                [
+                    "xpath///*[@id=\"username\"]"
+                ],
+                [
+                    "pierce/#username"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Continue",
+                    "aria/[role=\"generic\"]"
+                ],
+                [
+                    "#usernamePasswordForm > div.d-flex div"
+                ],
+                [
+                    "xpath///*[@id=\"btnSignIn\"]/div"
+                ],
+                [
+                    "pierce/#usernamePasswordForm > div.d-flex div"
+                ],
+                [
+                    "text/Continue"
+                ]
+            ],
+            "offsetY": 10.703125,
+            "offsetX": 169
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/First Name"
+                ],
+                [
+                    "#firstName"
+                ],
+                [
+                    "xpath///*[@id=\"firstName\"]"
+                ],
+                [
+                    "pierce/#firstName"
+                ]
+            ],
+            "offsetY": 17.203125,
+            "offsetX": 108
+        },
+        {
+            "type": "change",
+            "value": "Chirs",
+            "selectors": [
+                [
+                    "aria/FIRST NAME"
+                ],
+                [
+                    "#firstName"
+                ],
+                [
+                    "xpath///*[@id=\"firstName\"]"
+                ],
+                [
+                    "pierce/#firstName"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "keyDown",
+            "target": "main",
+            "key": "Tab"
+        },
+        {
+            "type": "keyUp",
+            "key": "Tab",
+            "target": "main"
+        },
+        {
+            "type": "change",
+            "value": "Price",
+            "selectors": [
+                [
+                    "aria/LAST NAME"
+                ],
+                [
+                    "#lastName"
+                ],
+                [
+                    "xpath///*[@id=\"lastName\"]"
+                ],
+                [
+                    "pierce/#lastName"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "keyDown",
+            "target": "main",
+            "key": "Tab"
+        },
+        {
+            "type": "keyUp",
+            "key": "Tab",
+            "target": "main"
+        },
+        {
+            "type": "change",
+            "value": "2FederateM0re!",
+            "selectors": [
+                [
+                    "aria/PASSWORD"
+                ],
+                [
+                    "#password"
+                ],
+                [
+                    "xpath///*[@id=\"password\"]"
+                ],
+                [
+                    "pierce/#password"
+                ]
+            ],
+            "target": "main"
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "aria/Continue",
+                    "aria/[role=\"generic\"]"
+                ],
+                [
+                    "#registrationForm > div.d-flex div"
+                ],
+                [
+                    "xpath///*[@id=\"submitBtn\"]/div"
+                ],
+                [
+                    "pierce/#registrationForm > div.d-flex div"
+                ],
+                [
+                    "text/Continue"
+                ]
+            ],
+            "offsetY": 9.203125,
+            "offsetX": 191
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "div.reactSingularKey_login_loginWithButtonContainer > div"
+                ],
+                [
+                    "xpath///*[@id=\"widgetContainer\"]/div/div/div[2]/div/div/div[3]/div[1]/div/div/div[1]/div"
+                ],
+                [
+                    "pierce/div.reactSingularKey_login_loginWithButtonContainer > div"
+                ],
+                [
+                    "text/Submit"
+                ]
+            ],
+            "offsetY": 25.2265625,
+            "offsetX": 274,
+            "assertedEvents": [
+                {
+                    "type": "navigation",
+                    "url": "http://localhost:3000/dashboard.html?code=036b4617-a190-4e7a-8050-e978a8a65e19&state=s86i5Lh8UmtvsfbW1jj3",
+                    "title": ""
+                }
+            ]
+        },
+        {
+            "type": "click",
+            "target": "main",
+            "selectors": [
+                [
+                    "section span:nth-of-type(2)"
+                ],
+                [
+                    "xpath//html/body/section/div[2]/div[2]/div[1]/span[2]"
+                ],
+                [
+                    "pierce/section span:nth-of-type(2)"
+                ],
+                [
+                    "text/ID Token"
+                ]
+            ],
+            "offsetY": 7.84375,
+            "offsetX": 50.0625
+        }
+    ]
+}

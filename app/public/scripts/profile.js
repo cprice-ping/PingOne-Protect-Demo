@@ -28,7 +28,7 @@ onPingOneSignalsReady(function () {
 async function getRiskDecision() {
     
     // External service to figure out the browser's ipAddress (v4)
-    const ipAddress = await fetch("https://ip4.seeip.org/json").then(res => res.json())
+    const ipAddress = await fetch("https://api.ipify.org?format=json").then(res => res.json())
 
     let body = { 
         "username" : document.getElementById("floatInputEmail").value,
