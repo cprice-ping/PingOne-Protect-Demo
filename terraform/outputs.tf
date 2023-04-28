@@ -28,5 +28,5 @@ output "docker_run_command" {
 }
 
 output "pingone_connection" {
-  value = data.davinci_connections.pingone
+  value = data.davinci_connections.pingone.connections[0].id
 }
