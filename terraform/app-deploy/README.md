@@ -30,3 +30,12 @@ The `k8s-resource.tf` shows an example of deploying the Application as a k8s Dep
 | Kubernetes | Deployment | Deploy the sample app |
 | Kubernetes | Service | Service pointing to the deployed app |
 | Kubernetes | Ingress | Inbound access to deployed app |
+
+Add the following variables to `terraform.tfvars`
+
+```hcl
+k8s_deploy_name = "{{ Name for k8s to use in deployment}}"
+k8s_namespace = "{{ k8s namespace to deploy into}}"
+app_image_name="pricecs/p1-protect-demo:latest"
+k8s_deploy_domain="{{ DNS domain to use for Ingress }}"
+```

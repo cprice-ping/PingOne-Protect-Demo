@@ -28,7 +28,7 @@ This is what the HCL will create
 
 ### Application Deployment
 
-If you'd like to also deploy the application via Terraform, the `./app-deploy` folder contains additional HCL files that can be copied into this folder and modified to your deployment spec.
+If you'd like to also deploy the application via Terraform, the [app-deploy](./app-deploy/) folder contains additional HCL files that can be copied into this folder and modified to your deployment spec.
 
 ## Variables
 
@@ -65,16 +65,3 @@ terraform apply —auto-approve
 ````
 
 If successful, you should be given the URL of the application that you can access with a browser
-
-### **Deploying the Demo App**
-
-* Copy the `/terraform/app-deploy/k8s.tf` into the `/terraform` folder.
-* Uncomment the lines in `/terraform/vars.tf`
-* Add the following variables to `terraform.tfvars`
-
-```hcl
-k8s_deploy_name = "{{ Name for k8s to use in deployment}}"
-k8s_namespace = "{{ k8s namespace to deploy into}}"
-app_image_name="pricecs/p1-protect-demo:latest"
-k8s_deploy_domain="{{ DNS domain to use for Ingress }}"
-```
