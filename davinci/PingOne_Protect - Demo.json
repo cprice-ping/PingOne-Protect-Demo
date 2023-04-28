@@ -4,19 +4,19 @@
   "connectorIds": [
     "annotationConnector",
     "nodeConnector",
-    "httpConnector",
+    "pingOneAuthenticationConnector",
     "variablesConnector",
+    "httpConnector",
     "pingOneSSOConnector",
     "flowConnector",
     "functionsConnector",
     "pingOneRiskConnector",
-    "pingOneAuthenticationConnector",
     "errorConnector"
   ],
-  "createdDate": 1682626639495,
-  "currentVersion": 24,
+  "createdDate": 1682691649638,
+  "currentVersion": 28,
   "customerId": "77f1978ad8c8c3c050419e8b14dfe244",
-  "deployedDate": 1682626640051,
+  "deployedDate": 1682691769339,
   "description": "Imported on Sat Apr 22 2023 21:16:18 GMT+0000 (Coordinated Universal Time)",
   "flowStatus": "enabled",
   "inputSchemaCompiled": {
@@ -29,7 +29,7 @@
   },
   "isInputSchemaSaved": false,
   "name": "PingOne Protect - Demo",
-  "publishedVersion": 24,
+  "publishedVersion": 28,
   "settings": {
     "csp": "worker-src 'self' blob:; script-src 'self' https://cdn.jsdelivr.net https://code.jquery.com https://devsdk.singularkey.com http://cdnjs.cloudflare.com 'unsafe-inline' 'unsafe-eval';",
     "css": ".companyLogo {\n    /* Ping Logo  */\n    content: url(\"https://assets.pingone.com/ux/ui-library/5.0.2/images/logo-pingidentity.png\");\n    width: 65px;\n    height: 65px;\n}",
@@ -47,9 +47,9 @@
   "trigger": {
     "type": "AUTHENTICATION"
   },
-  "updatedDate": 1682627914511,
+  "updatedDate": 1682691769340,
   "flowId": "ff10cbff74cb3b40e1bf6b7fcba7a15b",
-  "versionId": 24,
+  "versionId": 28,
   "graphData": {
     "elements": {
       "nodes": [
@@ -91,8 +91,8 @@
             }
           },
           "position": {
-            "x": 240,
-            "y": 214
+            "x": 200.46863189720332,
+            "y": 200.46863189720332
           },
           "group": "nodes",
           "removed": false,
@@ -143,8 +143,8 @@
             }
           },
           "position": {
-            "x": 473,
-            "y": 1714
+            "x": 286.3837598531476,
+            "y": 1718.3025591188855
           },
           "group": "nodes",
           "removed": false,
@@ -163,8 +163,8 @@
             "properties": {}
           },
           "position": {
-            "x": 593,
-            "y": 1714
+            "x": 400.93726379440665,
+            "y": 1718.3025591188855
           },
           "group": "nodes",
           "removed": false,
@@ -179,53 +179,19 @@
           "data": {
             "id": "13xqy80afe",
             "nodeType": "CONNECTION",
-            "connectionId": "867ed4363b2bc21c860085ad2baa817d",
-            "connectorId": "httpConnector",
-            "name": "Http",
-            "label": "Http",
+            "connectionId": "c3e6a164bde107954e93f5c09f0c8bce",
+            "connectorId": "pingOneAuthenticationConnector",
+            "name": "PingOne Authentication",
+            "label": "PingOne Authentication",
             "status": "configured",
-            "capabilityName": "createErrorResponse",
+            "capabilityName": "returnErrorResponseRedirect",
             "type": "action",
-            "properties": {
-              "backgroundColor": {
-                "value": "#ffc8c1ff"
-              },
-              "claimsNameValuePairs": {
-                "value": [
-                  {
-                    "key": 0.7505189133115058,
-                    "label": "errorCode (number - flowInstance)",
-                    "name": "errorCode",
-                    "nameDefault": "errorCode",
-                    "type": "number",
-                    "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"teleport.svg\",\n        \"url\": \"errorCode\",\n        \"data\": \"{{local.4zjizi23c6.payload.output.errorCode}}\",\n        \"tooltip\": \"{{local.4zjizi23c6.payload.output.errorCode}}\",\n        \"children\": [\n          {\n            \"text\": \"errorCode\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
-                  },
-                  {
-                    "key": 0.9809707255767062,
-                    "label": "errorMessage (string - flowInstance)",
-                    "name": "errorMessage",
-                    "nameDefault": "errorMessage",
-                    "type": "string",
-                    "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"teleport.svg\",\n        \"url\": \"errorMessage\",\n        \"data\": \"{{local.4zjizi23c6.payload.output.errorMessage}}\",\n        \"tooltip\": \"{{local.4zjizi23c6.payload.output.errorMessage}}\",\n        \"children\": [\n          {\n            \"text\": \"errorMessage\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
-                  },
-                  {
-                    "key": 0.2370967796224619,
-                    "label": "userAction (string - flowInstance)",
-                    "name": "userAction",
-                    "nameDefault": "userAction",
-                    "type": "string",
-                    "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"teleport.svg\",\n        \"url\": \"userAction\",\n        \"data\": \"{{local.4zjizi23c6.payload.output.userAction}}\",\n        \"tooltip\": \"{{local.4zjizi23c6.payload.output.userAction}}\",\n        \"children\": [\n          {\n            \"text\": \"userAction\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
-                  }
-                ]
-              },
-              "nodeTitle": {
-                "value": "Error JSON"
-              }
-            }
+            "properties": {},
+            "idUnique": "2bphwxgm96"
           },
           "position": {
-            "x": 773,
-            "y": 1714
+            "x": 572.7675197062952,
+            "y": 1718.3025591188855
           },
           "group": "nodes",
           "removed": false,
@@ -274,8 +240,8 @@
             }
           },
           "position": {
-            "x": 383,
-            "y": 1534
+            "x": 200.46863189720332,
+            "y": 1546.472303206997
           },
           "group": "nodes",
           "removed": false,
@@ -330,8 +296,8 @@
             }
           },
           "position": {
-            "x": 383,
-            "y": 1594
+            "x": 200.46863189720332,
+            "y": 1603.7490551776266
           },
           "group": "nodes",
           "removed": false,
@@ -796,8 +762,8 @@
             }
           },
           "position": {
-            "x": 420,
-            "y": 758
+            "x": 200.46863189720332,
+            "y": 744.5977756181837
           },
           "group": "nodes",
           "removed": false,
@@ -829,8 +795,8 @@
             }
           },
           "position": {
-            "x": 480,
-            "y": 878
+            "x": 257.74538386783286,
+            "y": 859.1512795594427
           },
           "group": "nodes",
           "removed": false,
@@ -911,8 +877,8 @@
             "properties": {}
           },
           "position": {
-            "x": 540,
-            "y": 878
+            "x": 315.02213583846236,
+            "y": 859.1512795594427
           },
           "group": "nodes",
           "removed": false,
@@ -959,8 +925,8 @@
             }
           },
           "position": {
-            "x": 720,
-            "y": 878
+            "x": 515.4907677356657,
+            "y": 859.1512795594427
           },
           "group": "nodes",
           "removed": false,
@@ -979,8 +945,8 @@
             "properties": {}
           },
           "position": {
-            "x": 824,
-            "y": 877.5
+            "x": 601.40589569161,
+            "y": 859.1512795594427
           },
           "group": "nodes",
           "removed": false,
@@ -1025,8 +991,8 @@
             }
           },
           "position": {
-            "x": 990,
-            "y": 878
+            "x": 773.2361516034985,
+            "y": 859.1512795594427
           },
           "group": "nodes",
           "removed": false,
@@ -1049,8 +1015,8 @@
             }
           },
           "position": {
-            "x": 1680,
-            "y": 938
+            "x": 1403.2804232804233,
+            "y": 887.7896555447576
           },
           "group": "nodes",
           "removed": false,
@@ -1088,8 +1054,8 @@
             }
           },
           "position": {
-            "x": 1800,
-            "y": 938
+            "x": 1546.472303206997,
+            "y": 887.7896555447576
           },
           "group": "nodes",
           "removed": false,
@@ -1108,8 +1074,8 @@
             "properties": {}
           },
           "position": {
-            "x": 1644,
-            "y": 428
+            "x": 1632.3874311629413,
+            "y": 429.57563977972137
           },
           "group": "nodes",
           "removed": false,
@@ -1128,8 +1094,8 @@
             "properties": {}
           },
           "position": {
-            "x": 1107.5,
-            "y": 994
+            "x": 887.7896555447576,
+            "y": 973.7047835007019
           },
           "group": "nodes",
           "removed": false,
@@ -1167,8 +1133,8 @@
             }
           },
           "position": {
-            "x": 1530,
-            "y": 998
+            "x": 1317.365295324479,
+            "y": 1059.6199114566462
           },
           "group": "nodes",
           "removed": false,
@@ -1186,8 +1152,8 @@
             "properties": {}
           },
           "position": {
-            "x": 1110,
-            "y": 1058
+            "x": 887.7896555447576,
+            "y": 1059.6199114566462
           },
           "group": "nodes",
           "removed": false,
@@ -1222,8 +1188,8 @@
             }
           },
           "position": {
-            "x": 1260,
-            "y": 1058
+            "x": 1059.6199114566462,
+            "y": 1059.6199114566462
           },
           "group": "nodes",
           "removed": false,
@@ -1241,8 +1207,8 @@
             "properties": {}
           },
           "position": {
-            "x": 1380,
-            "y": 1058
+            "x": 1174.173415397905,
+            "y": 1059.6199114566462
           },
           "group": "nodes",
           "removed": false,
@@ -1322,8 +1288,8 @@
             }
           },
           "position": {
-            "x": 473,
-            "y": 1384
+            "x": 286.3837598531476,
+            "y": 1403.2804232804233
           },
           "group": "nodes",
           "removed": false,
@@ -1342,8 +1308,8 @@
             "properties": {}
           },
           "position": {
-            "x": 593,
-            "y": 1384
+            "x": 400.93726379440665,
+            "y": 1403.2804232804233
           },
           "group": "nodes",
           "removed": false,
@@ -1387,8 +1353,8 @@
             }
           },
           "position": {
-            "x": 743,
-            "y": 1444
+            "x": 572.7675197062952,
+            "y": 1460.5571752510527
           },
           "group": "nodes",
           "removed": false,
@@ -1437,8 +1403,8 @@
             }
           },
           "position": {
-            "x": 371,
-            "y": 1156
+            "x": 200.46863189720332,
+            "y": 1174.173415397905
           },
           "group": "nodes",
           "removed": false,
@@ -1493,8 +1459,8 @@
             }
           },
           "position": {
-            "x": 371,
-            "y": 1216
+            "x": 200.46863189720332,
+            "y": 1231.4501673685347
           },
           "group": "nodes",
           "removed": false,
@@ -1529,8 +1495,8 @@
             }
           },
           "position": {
-            "x": 743,
-            "y": 1324
+            "x": 572.7675197062952,
+            "y": 1346.0036713097936
           },
           "group": "nodes",
           "removed": false,
@@ -1746,8 +1712,8 @@
             }
           },
           "position": {
-            "x": 1775,
-            "y": 429
+            "x": 1775.5793110895152,
+            "y": 429.57563977972137
           },
           "group": "nodes",
           "removed": false,
@@ -1846,6 +1812,95 @@
           "grabbable": true,
           "pannable": false,
           "classes": ""
+        },
+        {
+          "data": {
+            "id": "wtxlowjl8p",
+            "nodeType": "CONNECTION",
+            "connectionId": "867ed4363b2bc21c860085ad2baa817d",
+            "connectorId": "httpConnector",
+            "name": "Http",
+            "label": "HTTP",
+            "status": "configured",
+            "capabilityName": "customHtmlMessage",
+            "type": "trigger",
+            "properties": {
+              "message": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"flow-connector.svg\",\n        \"url\": \"riskEvalDetails\",\n        \"data\": \"{{local.4cma64i9o0.payload.output.riskEvalDetails}}\",\n        \"tooltip\": \"{{local.4cma64i9o0.payload.output.riskEvalDetails}}\",\n        \"children\": [\n          {\n            \"text\": \"riskEvalDetails\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              },
+              "messageTitle": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"Treat Assessment - \"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"flow-connector.svg\",\n        \"url\": \"riskLevel\",\n        \"data\": \"{{local.4cma64i9o0.payload.output.riskLevel}}\",\n        \"tooltip\": \"{{local.4cma64i9o0.payload.output.riskLevel}}\",\n        \"children\": [\n          {\n            \"text\": \"riskLevel\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \" \"\n      }\n    ]\n  }\n]"
+              },
+              "nodeTitle": {
+                "value": "Display Assessment"
+              },
+              "showContinueButton": {
+                "value": true
+              }
+            },
+            "idUnique": "o2lm72ln6g"
+          },
+          "position": {
+            "x": 1059.6199114566462,
+            "y": 973.7047835007019
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "uznq25uubw",
+            "nodeType": "EVAL",
+            "label": "Evaluator"
+          },
+          "position": {
+            "x": 1417.2253976622396,
+            "y": 1058.844580728323
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "387t5645gj",
+            "nodeType": "CONNECTION",
+            "connectionId": "3566e86a35c26e575396dcfb89a3dcc0",
+            "connectorId": "nodeConnector",
+            "name": "Teleport",
+            "label": "Teleport",
+            "status": "configured",
+            "capabilityName": "goToNode",
+            "type": "action",
+            "properties": {
+              "nodeInstanceId": {
+                "value": "4zjizi23c6"
+              }
+            }
+          },
+          "position": {
+            "x": 1544.365295324479,
+            "y": 1058.06925
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
         }
       ],
       "edges": [
@@ -1911,25 +1966,6 @@
             "id": "9x9mvhka7n",
             "source": "ktounrqqdr",
             "target": "62fwd717nz"
-          },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
-          "group": "edges",
-          "removed": false,
-          "selected": false,
-          "selectable": true,
-          "locked": false,
-          "grabbable": true,
-          "pannable": true,
-          "classes": ""
-        },
-        {
-          "data": {
-            "id": "u0lb3v7tnu",
-            "source": "41epemj141",
-            "target": "vo5oi5vrnk"
           },
           "position": {
             "x": 0,
@@ -2366,8 +2402,8 @@
         },
         {
           "data": {
-            "id": "97dauihrgu",
-            "source": "vo5oi5vrnk",
+            "id": "4oiruxcp2o",
+            "source": "wtxlowjl8p",
             "target": "ry8nlhbt6v"
           },
           "position": {
@@ -2630,6 +2666,63 @@
           "grabbable": true,
           "pannable": true,
           "classes": ""
+        },
+        {
+          "data": {
+            "id": "prh8llhyas",
+            "source": "41epemj141",
+            "target": "wtxlowjl8p"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "wyf4rgn4ty",
+            "source": "vo5oi5vrnk",
+            "target": "uznq25uubw"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "xe6wct3a81",
+            "source": "uznq25uubw",
+            "target": "387t5645gj"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
         }
       ]
     },
@@ -2652,7 +2745,7 @@
   },
   "inputSchema": [],
   "flowColor": "#ff661c",
-  "savedDate": 1682627914205,
+  "savedDate": 1682691649355,
   "variables": [],
   "connections": []
 }
