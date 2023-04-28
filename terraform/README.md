@@ -26,12 +26,9 @@ This is what the HCL will create
 | DaVinci | Flow | Import of the Flow JSON |
 | DaVinci | Application | Flow assigned to a Policy |
 
-[Optional]
-| Provider | Resource | Description |
-| --- | --- | --- |
-| K8s | Deployment | Deploy the sample app |
-| K8s | Service | Service pointing to the deployed app |
-| K8s | Ingress | Inbound access to deployed app |
+### Application Deployment
+
+If you'd like to also deploy the application via Terraform, the `./app-deploy` folder contains additional HCL files that can be copied into this folder and modified to your deployment spec.
 
 ## Variables
 
