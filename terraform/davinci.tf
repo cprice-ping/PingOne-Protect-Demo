@@ -43,12 +43,12 @@ data "davinci_connections" "all" {
 }
 
 # Get the boostrapped Connectors we need
-data "davinci_connections" "pingone" {
-  environment_id = pingone_environment.release_environment.id
-  // This will filter output to only include connections using the "httpConnector" type. 
-  // Helpful for validation that only one of a certain type exists.
-  connector_ids = ["pingOneSSOConnector"]
-}
+# data "davinci_connections" "pingone" {
+#   environment_id = pingone_environment.release_environment.id
+#   // This will filter output to only include connections using the "httpConnector" type. 
+#   // Helpful for validation that only one of a certain type exists.
+#   connector_ids = ["pingOneSSOConnector"]
+# }
 
 ## Create non-Bootstrapped Connectors
 # PingOne Notifications

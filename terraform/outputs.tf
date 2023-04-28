@@ -26,7 +26,3 @@ output "oidc_url" {
 output "docker_run_command" {
   value = "docker run -p 3000:3000 -e envId=${pingone_environment.release_environment.id} -e oidcClientId=${pingone_application.app_logon.oidc_options[0].client_id} -e workerId=${pingone_application.dv_worker_app.oidc_options[0].client_id} -e workerSecret={{DV Worker Secret}} pricecs/p1-protect-demo:latest"
 }
-
-output "pingone_connection" {
-  value = data.davinci_connections.pingone.connections[0].id
-}
