@@ -159,7 +159,7 @@ resource "davinci_flow" "initial_flow" {
     name = "Error Customize"
   }
   connection_link {
-    id   = data.davinci_connections.pingone.id
+    id   = "94141bf2f1b9b59a5f5365ff135e02bb"
     name = "PingOne"
   }
   connection_link {
