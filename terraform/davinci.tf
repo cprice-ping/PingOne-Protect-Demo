@@ -198,7 +198,7 @@ resource "davinci_flow" "threat_assessment" {
     name = "Functions"
   }
   connection_link {
-    id   = data.davinci_connections.pingone.connector_ids[0]
+    id   = "94141bf2f1b9b59a5f5365ff135e02bb"
     name = "Get Users Email"
   }
   connection_link {
