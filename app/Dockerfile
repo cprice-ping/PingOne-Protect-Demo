@@ -1,7 +1,7 @@
 
 FROM node:lts-slim as builder
 
-LABEL version="0.0.2"
+LABEL version="0.0.4"
 LABEL description="Demo app showing PingOne Protect integration"
 LABEL maintainer="Chris Price <cprice@pingidentity.com>"
 

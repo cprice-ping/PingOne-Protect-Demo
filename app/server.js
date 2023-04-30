@@ -45,12 +45,14 @@ fastify.listen(
   }
 );
 
+console.log("Server Env: ", process.env)
+
 /******************************************
  * Client - Get Runtime Details
  * Endpoint to pass deployed environment data to the client
  *****************************************/
 fastify.get("/getRuntimeDetails", (req, res) => {
-    res.send({envId: process.env.envId, clientId: process.env.oidcClientId })
+    res.send({envId: process.env.ENVID, clientId: process.env.OIDCCLIENTID })
 })
 
 /******************************************
@@ -68,7 +70,7 @@ fastify.all("/getRiskDecision", (req, res) => {
     getPingOneToken(pingOneToken => {
       
       // URL must match the Risk EnvID used to create the payload
-      const url="https://api.pingone.com/v1/environments/"+process.env.envId+"/riskEvaluations"
+      const url="https://api.pingone.com/v1/environments/"+process.env.ENVID+"/riskEvaluations"
       
       // Construct Risk headers
       const headers = {
@@ -124,8 +126,8 @@ fastify.all("/getRiskDecision", (req, res) => {
   * Get Worker token for P1 API call
   ***********************************************/
   function getPingOneToken(cb) {
-    const url="https://auth.pingone.com/"+process.env.envId+"/as/token"
-    const basicAuth=btoa(process.env.workerId+":"+process.env.workerSecret)
+    const url="https://auth.pingone.com/"+process.env.ENVID+"/as/token"
+    const basicAuth=btoa(process.env.WORKERID+":"+process.env.WORKERSECRET)
 
     var urlencoded = new URLSearchParams();
     urlencoded.append("grant_type", "client_credentials");
