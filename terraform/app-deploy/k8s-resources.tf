@@ -25,7 +25,7 @@ resource "kubernetes_ingress_v1" "package_ingress" {
             service {
               name = "${var.k8s_deploy_name}-app"
               port {
-                number = 4000
+                number = 3000
               }
             }
           }
@@ -71,7 +71,7 @@ resource "kubernetes_deployment" "demo_app" {
           env {
             # PingOne EnvID
             name  = "ENVID"
-            value = module.environment.environment_id
+            value = pingone_environment.release_environment.id
           }
           env {
             # P1 OIDC Client ID
@@ -106,8 +106,8 @@ resource "kubernetes_service" "demo_app" {
     }
     session_affinity = "ClientIP"
     port {
-      port        = var.app_port
-      target_port = var.app_port
+      port        = 3000
+      target_port = 3000
     }
 
     type = "ClusterIP"
