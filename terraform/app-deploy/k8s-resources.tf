@@ -1,3 +1,7 @@
+provider "kubernetes" {
+  config_path = "~/.kube/config"
+}
+
 resource "kubernetes_ingress_v1" "package_ingress" {
   metadata {
     namespace = var.k8s_namespace
@@ -60,7 +64,7 @@ resource "kubernetes_deployment" "demo_app" {
       }
       spec {
         container {
-          image             = var.app_image_name
+          image             = "pricecs/p1-protect-demo"
           name              = "${var.k8s_deploy_name}-app"
           image_pull_policy = "Always"
 
@@ -70,19 +74,19 @@ resource "kubernetes_deployment" "demo_app" {
             value = module.environment.environment_id
           }
           env {
-            # P1 Environment ID
-            name  = "DVDOMAIN"
-            value = local.pingone_domain
+            # P1 OIDC Client ID
+            name  = "OIDCCLIENTID"
+            value = pingone_application.app_logon.oidc_options[0].client_id
           }
           env {
-            # P1 Environment ID
-            name  = "DVAPIKEY"
-            value = davinci_application.initial_policy.api_keys.prod
+            # P1 Worker App ID
+            name  = "WORKERID"
+            value = pingone_application.dv_worker_app.oidc_options[0].client_id
           }
           env {
-            # Client ID
-            name  = "DVPOLICYID"
-            value = local.app_policy[var.app_policy_name]
+            # P1 Worker App Secret
+            name  = "WORKERSECRET"
+            value = pingone_application.dv_worker_app.oidc_options[0].client_secret
           }
         }
 

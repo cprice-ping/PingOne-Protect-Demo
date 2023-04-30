@@ -2,11 +2,11 @@
 
 You can use Terraform to deploy the PingOne Protect application - supplied in this folder are various flavors.
 
-Each flavor contains 2 files:
+Each flavor may contain 2 files:
 
 | File Pattern | Description |
 | --- | --- |
-| `{deployment}-provider.tf` | This should be merged into the `/terraform/versions.tf` file |
+| `{deployment}-provider.tf` | [If `required.provider`] This should be merged into the `/terraform/versions.tf` file |
 | `{deployment}-resources.tf` | This should be copied into the `/terraform` folder and modified for your environment |
 
 ## Docker
@@ -36,6 +36,5 @@ Add the following variables to `terraform.tfvars`
 ```hcl
 k8s_deploy_name = "{{ Name for k8s to use in deployment}}"
 k8s_namespace = "{{ k8s namespace to deploy into}}"
-app_image_name="pricecs/p1-protect-demo:latest"
 k8s_deploy_domain="{{ DNS domain to use for Ingress }}"
 ```
