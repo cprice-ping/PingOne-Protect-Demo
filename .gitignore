@@ -39,3 +39,4 @@ terraform.rc
 **/package-lock.json
 **/.env
 .DS_Store
+*.hcl

@@ -114,7 +114,7 @@ resource "pingone_application" "app_logon" {
     grant_types                 = ["AUTHORIZATION_CODE", "IMPLICIT"]
     response_types              = ["CODE", "TOKEN", "ID_TOKEN"]
     token_endpoint_authn_method = "NONE"
-    redirect_uris               = ["${local.app_url}", "https://decoder.pingidentity.cloud/hybrid"]
+    redirect_uris               = ["${local.app_url}/dashboard.html", "https://decoder.pingidentity.cloud/hybrid"]
     post_logout_redirect_uris   = ["http://localhost:3000"]
   }
 }
