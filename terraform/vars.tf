@@ -75,9 +75,9 @@ variable "k8s_deploy_domain" {
 
 locals {
   # Swap if deployed with k8s
-  # app_url = "https://${kubernetes_ingress_v1.package_ingress.spec[0].rule[0].host}"
+  app_url = "https://${kubernetes_ingress_v1.package_ingress.spec[0].rule[0].host}"
   # Docker URL
-  app_url = "http://localhost:3000"
+  # app_url = "http://localhost:3000"
 
   # Translate the Region to a Domain suffix
   north_america  = var.region == "NorthAmerica" ? "com" : ""
