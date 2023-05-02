@@ -11,7 +11,7 @@ data "pingone_licenses" "internal_license" {
 
   data_filter {
     name   = "package"
-    values = ["INTERNAL"]
+    values = ["${var.license_name}"]
   }
 
   data_filter {
