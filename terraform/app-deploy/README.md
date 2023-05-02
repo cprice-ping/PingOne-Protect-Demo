@@ -59,4 +59,3 @@ k8s_deploy_domain="{{ DNS domain to use for Ingress }}"
 ```
 
 To see the deployed URL, swap out the `app_url` in `outputs.tf`
-
