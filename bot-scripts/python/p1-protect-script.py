@@ -46,12 +46,8 @@ def registerUser(userDetails):
     element.send_keys(userDetails['results'][0]['name']['last'])
     element = wait.until(EC.element_to_be_clickable((By.ID, 'password')))
     element.send_keys('botP@ssword12')
+    browser.implicitly_wait(5)
     browser.find_element(By.ID, 'submitBtn').click()
-
-def login(userEmail):
-    # Complete Login Form
-    element = wait.until(EC.element_to_be_clickable((By.ID, 'username')))
-    element.send_keys(userEmail)
 
 # Script Starts here:
 startForm(userEmail)
@@ -61,7 +57,10 @@ if wait.until(EC.presence_of_element_located((By.ID, 'header'))).text == "Create
     print("Unknown User -- Register")
     registerUser(userDetails)
 
-    print("Logon Registered User")
+    # Pause for 2s before logging on
+    print("Pausing before logging on")
+    browser.implicitly_wait(2)
+    print("Logon: "+userEmail)
     startForm(userEmail)
 else:
     print("Known User -- Logon")
