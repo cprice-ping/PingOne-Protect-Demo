@@ -9,5 +9,9 @@ terraform {
     time = {
       source = "hashicorp/time"
     }
+    docker = {
+      source  = "kreuzwerker/docker"
+    #   version = "3.0.2"
+    }
   }
 }

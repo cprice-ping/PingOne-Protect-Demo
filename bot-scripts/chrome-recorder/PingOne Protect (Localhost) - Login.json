@@ -114,7 +114,7 @@
         },
         {
             "type": "change",
-            "value": "oidcuser1@mailinator.com",
+            "value": "newuser1@mailinator.com",
             "selectors": [
                 [
                     "aria/YOUR EMAIL ADDRESS"

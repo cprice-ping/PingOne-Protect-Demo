@@ -1177,7 +1177,7 @@
             "type": "action",
             "properties": {
               "completionStatus": {
-                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"FAILURE\"\n      }\n    ]\n  }\n]"
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"FAILED\"\n      }\n    ]\n  }\n]"
               },
               "nodeTitle": {
                 "value": "Record FAILURE"
