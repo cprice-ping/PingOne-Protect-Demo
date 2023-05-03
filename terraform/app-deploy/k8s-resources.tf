@@ -67,6 +67,32 @@ resource "kubernetes_deployment" "demo_app" {
           image             = "pricecs/p1-protect-demo"
           name              = "${var.k8s_deploy_name}-app"
           image_pull_policy = "Always"
+          
+          security_context {
+            # run_as_non_root = true
+            allow_privilege_escalation = false
+            capabilities {
+              drop = ["ALL"]
+            }
+          }
+
+          resources {
+            limits = {
+              cpu    = "0.5"
+              memory = "512Mi"
+            }
+            requests = {
+              cpu    = "250m"
+              memory = "50Mi"
+            }
+          }
+
+          liveness_probe {
+            http_get {
+              path = "/"
+              port = 3000
+            }
+          }
 
           env {
             # PingOne EnvID
