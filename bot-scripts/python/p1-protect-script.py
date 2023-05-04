@@ -29,29 +29,39 @@ time.sleep(0.6)
 element.click()
 print("OIDC button pressed")
 
-element = wait.until(EC.element_to_be_clickable((By.ID, 'username')))
-print("Entering Email Address: ", userEmail)
-element.send_keys(userEmail)
-
-element = wait.until(EC.element_to_be_clickable((By.ID, 'btnSignIn')))
-element.click()
-print("Continue button pressed")
+def startForm(userEmail):
+    # Complete Email Form
+    element = wait.until(EC.element_to_be_clickable((By.ID, 'username')))
+    print("Entering Email Address: ", userEmail)
+    element.send_keys(userEmail)
+    element = wait.until(EC.element_to_be_clickable((By.ID, 'btnSignIn')))
+    element.click()
+    print("Continue button pressed")
 
 def registerUser(userDetails):
-    # Fill out Registration Form
+    # Complete Registration Form
     element = wait.until(EC.element_to_be_clickable((By.ID, 'firstName')))
     element.send_keys(userDetails['results'][0]['name']['first'])
     element = wait.until(EC.element_to_be_clickable((By.ID, 'lastName')))
     element.send_keys(userDetails['results'][0]['name']['last'])
     element = wait.until(EC.element_to_be_clickable((By.ID, 'password')))
     element.send_keys('botP@ssword12')
-
+    browser.implicitly_wait(5)
     browser.find_element(By.ID, 'submitBtn').click()
+
+# Script Starts here:
+startForm(userEmail)
 
 # Check to see if we're on the Register page
 if wait.until(EC.presence_of_element_located((By.ID, 'header'))).text == "Create Your Profile":
     print("Unknown User -- Register")
     registerUser(userDetails)
+
+    # Pause for 2s before logging on
+    print("Pausing before logging on")
+    browser.implicitly_wait(2)
+    print("Logon: "+userEmail)
+    startForm(userEmail)
 else:
     print("Known User -- Logon")
 
