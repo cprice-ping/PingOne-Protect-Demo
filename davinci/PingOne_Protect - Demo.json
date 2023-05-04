@@ -1,5 +1,5 @@
 {
-  "companyId": "c85fe8e8-a62a-4acd-a4fa-8742ca4159e5",
+  "companyId": "3321f493-1d7e-4268-af64-f174132cb381",
   "authTokenExpireIds": [],
   "connectorIds": [
     "annotationConnector",
@@ -13,10 +13,10 @@
     "pingOneRiskConnector",
     "errorConnector"
   ],
-  "createdDate": 1682691649638,
-  "currentVersion": 28,
+  "createdDate": 1683174019797,
+  "currentVersion": 16,
   "customerId": "77f1978ad8c8c3c050419e8b14dfe244",
-  "deployedDate": 1682691769339,
+  "deployedDate": 1683174021790,
   "description": "Imported on Sat Apr 22 2023 21:16:18 GMT+0000 (Coordinated Universal Time)",
   "flowStatus": "enabled",
   "inputSchemaCompiled": {
@@ -29,7 +29,7 @@
   },
   "isInputSchemaSaved": false,
   "name": "PingOne Protect - Demo",
-  "publishedVersion": 28,
+  "publishedVersion": 16,
   "settings": {
     "csp": "worker-src 'self' blob:; script-src 'self' https://cdn.jsdelivr.net https://code.jquery.com https://devsdk.singularkey.com http://cdnjs.cloudflare.com 'unsafe-inline' 'unsafe-eval';",
     "css": ".companyLogo {\n    /* Ping Logo  */\n    content: url(\"https://assets.pingone.com/ux/ui-library/5.0.2/images/logo-pingidentity.png\");\n    width: 65px;\n    height: 65px;\n}",
@@ -47,9 +47,9 @@
   "trigger": {
     "type": "AUTHENTICATION"
   },
-  "updatedDate": 1682691769340,
-  "flowId": "ff10cbff74cb3b40e1bf6b7fcba7a15b",
-  "versionId": 28,
+  "updatedDate": 1683174021791,
+  "flowId": "4b8df6f2ba82c37a925629a1a39a1073",
+  "versionId": 16,
   "graphData": {
     "elements": {
       "nodes": [
@@ -91,8 +91,8 @@
             }
           },
           "position": {
-            "x": 200.46863189720332,
-            "y": 200.46863189720332
+            "x": 219.72324802937047,
+            "y": 214
           },
           "group": "nodes",
           "removed": false,
@@ -110,8 +110,8 @@
             "properties": {}
           },
           "position": {
-            "x": 397,
-            "y": 484
+            "x": 416.25461613216714,
+            "y": 497.5313681027967
           },
           "group": "nodes",
           "removed": false,
@@ -143,8 +143,8 @@
             }
           },
           "position": {
-            "x": 286.3837598531476,
-            "y": 1718.3025591188855
+            "x": 305.6383759853147,
+            "y": 1731.8339272216822
           },
           "group": "nodes",
           "removed": false,
@@ -163,8 +163,8 @@
             "properties": {}
           },
           "position": {
-            "x": 400.93726379440665,
-            "y": 1718.3025591188855
+            "x": 420.1918799265738,
+            "y": 1731.8339272216822
           },
           "group": "nodes",
           "removed": false,
@@ -186,12 +186,11 @@
             "status": "configured",
             "capabilityName": "returnErrorResponseRedirect",
             "type": "action",
-            "properties": {},
-            "idUnique": "2bphwxgm96"
+            "properties": {}
           },
           "position": {
-            "x": 572.7675197062952,
-            "y": 1718.3025591188855
+            "x": 592.0221358384623,
+            "y": 1731.8339272216822
           },
           "group": "nodes",
           "removed": false,
@@ -240,8 +239,8 @@
             }
           },
           "position": {
-            "x": 200.46863189720332,
-            "y": 1546.472303206997
+            "x": 219.72324802937047,
+            "y": 1560.0036713097936
           },
           "group": "nodes",
           "removed": false,
@@ -296,8 +295,8 @@
             }
           },
           "position": {
-            "x": 200.46863189720332,
-            "y": 1603.7490551776266
+            "x": 219.72324802937047,
+            "y": 1617.2804232804233
           },
           "group": "nodes",
           "removed": false,
@@ -382,8 +381,8 @@
             }
           },
           "position": {
-            "x": 277,
-            "y": 484
+            "x": 296.25461613216714,
+            "y": 497.5313681027967
           },
           "group": "nodes",
           "removed": false,
@@ -450,8 +449,8 @@
             }
           },
           "position": {
-            "x": 780,
-            "y": 488
+            "x": 799.2546161321671,
+            "y": 501.5313681027967
           },
           "group": "nodes",
           "removed": false,
@@ -510,8 +509,8 @@
             }
           },
           "position": {
-            "x": 1470,
-            "y": 420
+            "x": 1489.254616132167,
+            "y": 433.5313681027967
           },
           "group": "nodes",
           "removed": false,
@@ -530,8 +529,8 @@
             "properties": {}
           },
           "position": {
-            "x": 885,
-            "y": 489
+            "x": 904.2546161321671,
+            "y": 502.5313681027967
           },
           "group": "nodes",
           "removed": false,
@@ -566,8 +565,8 @@
             }
           },
           "position": {
-            "x": 1007,
-            "y": 490
+            "x": 1026.254616132167,
+            "y": 503.5313681027967
           },
           "group": "nodes",
           "removed": false,
@@ -589,8 +588,8 @@
             }
           },
           "position": {
-            "x": 1140,
-            "y": 488
+            "x": 1159.254616132167,
+            "y": 501.5313681027967
           },
           "group": "nodes",
           "removed": false,
@@ -673,8 +672,8 @@
             }
           },
           "position": {
-            "x": 1320,
-            "y": 578
+            "x": 1339.254616132167,
+            "y": 591.5313681027967
           },
           "group": "nodes",
           "removed": false,
@@ -712,8 +711,8 @@
             }
           },
           "position": {
-            "x": 1260,
-            "y": 420
+            "x": 1279.254616132167,
+            "y": 433.5313681027967
           },
           "group": "nodes",
           "removed": false,
@@ -762,8 +761,8 @@
             }
           },
           "position": {
-            "x": 200.46863189720332,
-            "y": 744.5977756181837
+            "x": 219.72324802937047,
+            "y": 758.1291437209804
           },
           "group": "nodes",
           "removed": false,
@@ -795,47 +794,8 @@
             }
           },
           "position": {
-            "x": 257.74538386783286,
-            "y": 859.1512795594427
-          },
-          "group": "nodes",
-          "removed": false,
-          "selected": false,
-          "selectable": true,
-          "locked": false,
-          "grabbable": true,
-          "pannable": false,
-          "classes": ""
-        },
-        {
-          "data": {
-            "id": "2444rnx94n",
-            "nodeType": "CONNECTION",
-            "connectionId": "3566e86a35c26e575396dcfb89a3dcc0",
-            "connectorId": "nodeConnector",
-            "name": "Teleport",
-            "label": "Teleport",
-            "status": "configured",
-            "capabilityName": "goToNode",
-            "type": "action",
-            "properties": {
-              "action": {
-                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"AUTHENTICATION\"\n      }\n    ]\n  }\n]"
-              },
-              "nodeInstanceId": {
-                "value": "bxnz7tatva"
-              },
-              "sdkPayload": {
-                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"http.svg\",\n        \"url\": \"riskfp\",\n        \"data\": \"{{local.k823tac84t.payload.output.riskfp}}\",\n        \"tooltip\": \"{{local.k823tac84t.payload.output.riskfp}}\",\n        \"children\": [\n          {\n            \"text\": \"riskfp\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
-              },
-              "userId": {
-                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"pingIdentity.svg\",\n        \"url\": \"id\",\n        \"data\": \"{{local.u8otjdlls5.payload.output.user.id}}\",\n        \"tooltip\": \"{{local.u8otjdlls5.payload.output.user.id}}\",\n        \"children\": [\n          {\n            \"text\": \"id\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
-              }
-            }
-          },
-          "position": {
-            "x": 1770,
-            "y": 570
+            "x": 277,
+            "y": 872.6826476622394
           },
           "group": "nodes",
           "removed": false,
@@ -857,8 +817,8 @@
             }
           },
           "position": {
-            "x": 1440,
-            "y": 578
+            "x": 1459.254616132167,
+            "y": 591.5313681027967
           },
           "group": "nodes",
           "removed": false,
@@ -877,8 +837,8 @@
             "properties": {}
           },
           "position": {
-            "x": 315.02213583846236,
-            "y": 859.1512795594427
+            "x": 334.2767519706295,
+            "y": 872.6826476622394
           },
           "group": "nodes",
           "removed": false,
@@ -913,7 +873,7 @@
               "subFlowId": {
                 "value": {
                   "label": "[Sub] P1 Protect with New Device notification",
-                  "value": "042a85c054eba2182e501f9f4eb299b9"
+                  "value": "2593793990ed16ddbe18088edb004b1c"
                 }
               },
               "subFlowVersionId": {
@@ -925,8 +885,8 @@
             }
           },
           "position": {
-            "x": 515.4907677356657,
-            "y": 859.1512795594427
+            "x": 534.7453838678329,
+            "y": 872.6826476622394
           },
           "group": "nodes",
           "removed": false,
@@ -945,8 +905,8 @@
             "properties": {}
           },
           "position": {
-            "x": 601.40589569161,
-            "y": 859.1512795594427
+            "x": 620.6605118237771,
+            "y": 872.6826476622394
           },
           "group": "nodes",
           "removed": false,
@@ -991,8 +951,8 @@
             }
           },
           "position": {
-            "x": 773.2361516034985,
-            "y": 859.1512795594427
+            "x": 792.4907677356656,
+            "y": 872.6826476622394
           },
           "group": "nodes",
           "removed": false,
@@ -1015,8 +975,8 @@
             }
           },
           "position": {
-            "x": 1403.2804232804233,
-            "y": 887.7896555447576
+            "x": 1422.5350394125903,
+            "y": 901.3210236475543
           },
           "group": "nodes",
           "removed": false,
@@ -1054,8 +1014,8 @@
             }
           },
           "position": {
-            "x": 1546.472303206997,
-            "y": 887.7896555447576
+            "x": 1565.726919339164,
+            "y": 901.3210236475543
           },
           "group": "nodes",
           "removed": false,
@@ -1074,8 +1034,8 @@
             "properties": {}
           },
           "position": {
-            "x": 1632.3874311629413,
-            "y": 429.57563977972137
+            "x": 1651.6420472951086,
+            "y": 443.107007882518
           },
           "group": "nodes",
           "removed": false,
@@ -1094,8 +1054,8 @@
             "properties": {}
           },
           "position": {
-            "x": 887.7896555447576,
-            "y": 973.7047835007019
+            "x": 907.0442716769247,
+            "y": 987.2361516034986
           },
           "group": "nodes",
           "removed": false,
@@ -1133,8 +1093,8 @@
             }
           },
           "position": {
-            "x": 1317.365295324479,
-            "y": 1059.6199114566462
+            "x": 1336.6199114566462,
+            "y": 1073.1512795594429
           },
           "group": "nodes",
           "removed": false,
@@ -1152,8 +1112,8 @@
             "properties": {}
           },
           "position": {
-            "x": 887.7896555447576,
-            "y": 1059.6199114566462
+            "x": 907.0442716769247,
+            "y": 1073.1512795594429
           },
           "group": "nodes",
           "removed": false,
@@ -1177,7 +1137,7 @@
             "type": "action",
             "properties": {
               "completionStatus": {
-                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"FAILURE\"\n      }\n    ]\n  }\n]"
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"FAILED\"\n      }\n    ]\n  }\n]"
               },
               "nodeTitle": {
                 "value": "Record FAILURE"
@@ -1188,8 +1148,8 @@
             }
           },
           "position": {
-            "x": 1059.6199114566462,
-            "y": 1059.6199114566462
+            "x": 1078.8745275888132,
+            "y": 1073.1512795594429
           },
           "group": "nodes",
           "removed": false,
@@ -1207,8 +1167,8 @@
             "properties": {}
           },
           "position": {
-            "x": 1174.173415397905,
-            "y": 1059.6199114566462
+            "x": 1193.428031530072,
+            "y": 1073.1512795594429
           },
           "group": "nodes",
           "removed": false,
@@ -1255,8 +1215,8 @@
             }
           },
           "position": {
-            "x": 1560,
-            "y": 570
+            "x": 1590,
+            "y": 600
           },
           "group": "nodes",
           "removed": false,
@@ -1288,8 +1248,8 @@
             }
           },
           "position": {
-            "x": 286.3837598531476,
-            "y": 1403.2804232804233
+            "x": 305.6383759853147,
+            "y": 1416.81179138322
           },
           "group": "nodes",
           "removed": false,
@@ -1308,8 +1268,8 @@
             "properties": {}
           },
           "position": {
-            "x": 400.93726379440665,
-            "y": 1403.2804232804233
+            "x": 420.1918799265738,
+            "y": 1416.81179138322
           },
           "group": "nodes",
           "removed": false,
@@ -1353,8 +1313,8 @@
             }
           },
           "position": {
-            "x": 572.7675197062952,
-            "y": 1460.5571752510527
+            "x": 592.0221358384623,
+            "y": 1474.0885433538494
           },
           "group": "nodes",
           "removed": false,
@@ -1403,8 +1363,8 @@
             }
           },
           "position": {
-            "x": 200.46863189720332,
-            "y": 1174.173415397905
+            "x": 219.72324802937047,
+            "y": 1187.7047835007018
           },
           "group": "nodes",
           "removed": false,
@@ -1459,8 +1419,8 @@
             }
           },
           "position": {
-            "x": 200.46863189720332,
-            "y": 1231.4501673685347
+            "x": 219.72324802937047,
+            "y": 1244.9815354713314
           },
           "group": "nodes",
           "removed": false,
@@ -1495,8 +1455,8 @@
             }
           },
           "position": {
-            "x": 572.7675197062952,
-            "y": 1346.0036713097936
+            "x": 592.0221358384623,
+            "y": 1359.5350394125903
           },
           "group": "nodes",
           "removed": false,
@@ -1515,8 +1475,8 @@
             "properties": {}
           },
           "position": {
-            "x": 1905.5,
-            "y": 574
+            "x": 1710,
+            "y": 600
           },
           "group": "nodes",
           "removed": false,
@@ -1554,8 +1514,8 @@
             }
           },
           "position": {
-            "x": 2037,
-            "y": 575
+            "x": 1830,
+            "y": 600
           },
           "group": "nodes",
           "removed": false,
@@ -1593,8 +1553,8 @@
             }
           },
           "position": {
-            "x": 2040,
-            "y": 424
+            "x": 2059.254616132167,
+            "y": 437.5313681027967
           },
           "group": "nodes",
           "removed": false,
@@ -1623,8 +1583,8 @@
             }
           },
           "position": {
-            "x": 517,
-            "y": 484
+            "x": 536.2546161321671,
+            "y": 497.5313681027967
           },
           "group": "nodes",
           "removed": false,
@@ -1646,8 +1606,8 @@
             }
           },
           "position": {
-            "x": 637,
-            "y": 484
+            "x": 656.2546161321671,
+            "y": 497.5313681027967
           },
           "group": "nodes",
           "removed": false,
@@ -1679,8 +1639,8 @@
             }
           },
           "position": {
-            "x": 800,
-            "y": 342
+            "x": 819.2546161321671,
+            "y": 355.5313681027967
           },
           "group": "nodes",
           "removed": false,
@@ -1712,8 +1672,8 @@
             }
           },
           "position": {
-            "x": 1775.5793110895152,
-            "y": 429.57563977972137
+            "x": 1794.8339272216822,
+            "y": 443.107007882518
           },
           "group": "nodes",
           "removed": false,
@@ -1735,8 +1695,8 @@
             }
           },
           "position": {
-            "x": 1907.5,
-            "y": 426.5
+            "x": 1926.754616132167,
+            "y": 440.0313681027967
           },
           "group": "nodes",
           "removed": false,
@@ -1765,26 +1725,8 @@
             }
           },
           "position": {
-            "x": 2052,
-            "y": 321
-          },
-          "group": "nodes",
-          "removed": false,
-          "selected": false,
-          "selectable": true,
-          "locked": false,
-          "grabbable": true,
-          "pannable": false,
-          "classes": ""
-        },
-        {
-          "data": {
-            "id": "6u22mpc2pe",
-            "nodeType": "EVAL"
-          },
-          "position": {
-            "x": 1665,
-            "y": 570
+            "x": 2071.254616132167,
+            "y": 334.5313681027967
           },
           "group": "nodes",
           "removed": false,
@@ -1798,11 +1740,12 @@
         {
           "data": {
             "id": "v824wn2c1u",
-            "nodeType": "EVAL"
+            "nodeType": "EVAL",
+            "properties": {}
           },
           "position": {
-            "x": 1365,
-            "y": 420
+            "x": 1384.254616132167,
+            "y": 433.5313681027967
           },
           "group": "nodes",
           "removed": false,
@@ -1837,12 +1780,11 @@
               "showContinueButton": {
                 "value": true
               }
-            },
-            "idUnique": "o2lm72ln6g"
+            }
           },
           "position": {
-            "x": 1059.6199114566462,
-            "y": 973.7047835007019
+            "x": 1078.8745275888132,
+            "y": 987.2361516034986
           },
           "group": "nodes",
           "removed": false,
@@ -1857,11 +1799,12 @@
           "data": {
             "id": "uznq25uubw",
             "nodeType": "EVAL",
-            "label": "Evaluator"
+            "label": "Evaluator",
+            "properties": {}
           },
           "position": {
-            "x": 1417.2253976622396,
-            "y": 1058.844580728323
+            "x": 1436.4800137944067,
+            "y": 1072.3759488311198
           },
           "group": "nodes",
           "removed": false,
@@ -1890,8 +1833,8 @@
             }
           },
           "position": {
-            "x": 1544.365295324479,
-            "y": 1058.06925
+            "x": 1563.6199114566462,
+            "y": 1071.6006181027967
           },
           "group": "nodes",
           "removed": false,
@@ -1906,9 +1849,47 @@
       "edges": [
         {
           "data": {
-            "id": "al376itfct",
-            "source": "u8otjdlls5",
-            "target": "6u22mpc2pe"
+            "id": "prh8llhyas",
+            "source": "41epemj141",
+            "target": "wtxlowjl8p"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "21j52zqbuq",
+            "source": "d8rlfiowz6",
+            "target": "xp9cpp27tw"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "zem41kv6e1",
+            "source": "zwtp3sdm56",
+            "target": "suagay9x82"
           },
           "position": {
             "x": 0,
@@ -2153,9 +2134,9 @@
         },
         {
           "data": {
-            "id": "2k7i4ajh1p",
-            "source": "6u22mpc2pe",
-            "target": "2444rnx94n"
+            "id": "wyf4rgn4ty",
+            "source": "vo5oi5vrnk",
+            "target": "uznq25uubw"
           },
           "position": {
             "x": 0,
@@ -2172,9 +2153,9 @@
         },
         {
           "data": {
-            "id": "o1upz5z5rn",
-            "source": "2444rnx94n",
-            "target": "a04dygbseg"
+            "id": "xe6wct3a81",
+            "source": "uznq25uubw",
+            "target": "387t5645gj"
           },
           "position": {
             "x": 0,
@@ -2631,85 +2612,9 @@
         },
         {
           "data": {
-            "id": "21j52zqbuq",
-            "source": "d8rlfiowz6",
-            "target": "xp9cpp27tw"
-          },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
-          "group": "edges",
-          "removed": false,
-          "selected": false,
-          "selectable": true,
-          "locked": false,
-          "grabbable": true,
-          "pannable": true,
-          "classes": ""
-        },
-        {
-          "data": {
-            "id": "zem41kv6e1",
-            "source": "zwtp3sdm56",
-            "target": "suagay9x82"
-          },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
-          "group": "edges",
-          "removed": false,
-          "selected": false,
-          "selectable": true,
-          "locked": false,
-          "grabbable": true,
-          "pannable": true,
-          "classes": ""
-        },
-        {
-          "data": {
-            "id": "prh8llhyas",
-            "source": "41epemj141",
-            "target": "wtxlowjl8p"
-          },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
-          "group": "edges",
-          "removed": false,
-          "selected": false,
-          "selectable": true,
-          "locked": false,
-          "grabbable": true,
-          "pannable": true,
-          "classes": ""
-        },
-        {
-          "data": {
-            "id": "wyf4rgn4ty",
-            "source": "vo5oi5vrnk",
-            "target": "uznq25uubw"
-          },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
-          "group": "edges",
-          "removed": false,
-          "selected": false,
-          "selectable": true,
-          "locked": false,
-          "grabbable": true,
-          "pannable": true,
-          "classes": ""
-        },
-        {
-          "data": {
-            "id": "xe6wct3a81",
-            "source": "uznq25uubw",
-            "target": "387t5645gj"
+            "id": "zjsrgzuq69",
+            "source": "u8otjdlls5",
+            "target": "a04dygbseg"
           },
           "position": {
             "x": 0,
@@ -2745,7 +2650,7 @@
   },
   "inputSchema": [],
   "flowColor": "#ff661c",
-  "savedDate": 1682691649355,
+  "savedDate": 1683174019543,
   "variables": [],
   "connections": []
 }
