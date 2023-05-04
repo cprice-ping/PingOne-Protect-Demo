@@ -1,25 +1,14 @@
 {
-    "title": "P1 Protect - Login (Localhost)",
+    "title": "P1 Protect - Login",
     "steps": [
         {
             "type": "setViewport",
-            "width": 1092,
-            "height": 1063,
+            "width": 906,
+            "height": 899,
             "deviceScaleFactor": 1,
             "isMobile": false,
             "hasTouch": false,
             "isLandscape": false
-        },
-        {
-            "type": "navigate",
-            "url": "http://localhost:3000/",
-            "assertedEvents": [
-                {
-                    "type": "navigation",
-                    "url": "http://localhost:3000/",
-                    "title": "PingOne Protect - SignalsSDK"
-                }
-            ]
         },
         {
             "type": "navigate",
@@ -52,13 +41,13 @@
                     "text/DaVinci Integration"
                 ]
             ],
-            "offsetY": 13,
-            "offsetX": 96.859375,
+            "offsetY": 13.5,
+            "offsetX": 74.5,
             "assertedEvents": [
                 {
                     "type": "navigation",
                     "url": "http://localhost:3000/oidc.html",
-                    "title": "PingOne Protect - SignalsSDK"
+                    "title": ""
                 }
             ]
         },
@@ -82,12 +71,12 @@
                     "text/Launch OIDC Flow"
                 ]
             ],
-            "offsetY": 21,
-            "offsetX": 77,
+            "offsetY": 20,
+            "offsetX": 89.5,
             "assertedEvents": [
                 {
                     "type": "navigation",
-                    "url": "https://auth.pingone.com/c85fe8e8-a62a-4acd-a4fa-8742ca4159e5/as/authorize?response_type=code&client_id=f53cbbc9-4273-4944-9178-d1de58324b64&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fdashboard.html&scope=openid+profile&state=CaJVY3PY6Pd96N7MAog0&nonce=Gu83dfROjU&code_challenge=VxjvTov1mGKG2uF9R8NrNREQP-VLB3j5TVnCAtm93Cc&code_challenge_method=S256",
+                    "url": "https://auth.pingone.com/3321f493-1d7e-4268-af64-f174132cb381/as/authorize?response_type=code&client_id=b179f85c-ef3e-49a5-b856-18db5df3dc5d&redirect_uri=http%3A%2F%2Flocalhost%3A3000%2Fdashboard.html&scope=openid+email+profile&state=UVEuk1vVXuC2yc2tswjJ&nonce=SIA2CC9Iw3&code_challenge=SzsZXJLk9e_glHGivB1cKpVPNIMBX4nip-akjcK0mGI&code_challenge_method=S256",
                     "title": ""
                 }
             ]
@@ -109,12 +98,12 @@
                     "pierce/#username"
                 ]
             ],
-            "offsetY": 29.703125,
-            "offsetX": 85
+            "offsetY": 21.703125,
+            "offsetX": 53
         },
         {
             "type": "change",
-            "value": "newuser1@mailinator.com",
+            "value": "oidcuser1@mailinator.com",
             "selectors": [
                 [
                     "aria/YOUR EMAIL ADDRESS"
@@ -152,8 +141,8 @@
                     "text/Continue"
                 ]
             ],
-            "offsetY": 11.703125,
-            "offsetX": 159
+            "offsetY": -0.296875,
+            "offsetX": 95
         },
         {
             "type": "change",
@@ -192,55 +181,15 @@
                     "pierce/#btnSignIn > div"
                 ]
             ],
-            "offsetY": 9.203125,
-            "offsetX": 163
-        },
-        {
-            "type": "click",
-            "target": "main",
-            "selectors": [
-                [
-                    "div.reactSingularKey_login_loginWithButtonContainer > div"
-                ],
-                [
-                    "xpath///*[@id=\"widgetContainer\"]/div/div/div[2]/div/div/div[3]/div[1]/div/div/div[1]/div"
-                ],
-                [
-                    "pierce/div.reactSingularKey_login_loginWithButtonContainer > div"
-                ],
-                [
-                    "text/Submit"
-                ]
-            ],
-            "offsetY": 14.2265625,
-            "offsetX": 274,
+            "offsetY": 12.203125,
+            "offsetX": 160,
             "assertedEvents": [
                 {
                     "type": "navigation",
-                    "url": "http://localhost:3000/dashboard.html?code=032c9866-6cea-41c1-8df4-3cefbbe55031&state=CaJVY3PY6Pd96N7MAog0",
+                    "url": "http://localhost:3000/dashboard.html?code=038329fa-6ba4-43fa-84e2-09fad80a3d87&state=UVEuk1vVXuC2yc2tswjJ",
                     "title": ""
                 }
             ]
-        },
-        {
-            "type": "click",
-            "target": "main",
-            "selectors": [
-                [
-                    "section span:nth-of-type(2)"
-                ],
-                [
-                    "xpath//html/body/section/div[2]/div[2]/div[1]/span[2]"
-                ],
-                [
-                    "pierce/section span:nth-of-type(2)"
-                ],
-                [
-                    "text/ID Token"
-                ]
-            ],
-            "offsetY": 14.84375,
-            "offsetX": 42.0625
         }
     ]
 }
