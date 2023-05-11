@@ -73,6 +73,8 @@ fastify.post("/postForm", (req, res) => {
 ******************************************/
 fastify.all("/getRiskDecision", (req, res) => { 
     
+  const userAgent = req.headers['user-agent']
+  console.log("UserAgent: ", userAgent)
   const username = req.body.username
   const ipAddress = req.body.ipAddress || req.headers['x-forwarded-for'].split(",")[0]
   const sdkpayload = req.body.sdkPayload
