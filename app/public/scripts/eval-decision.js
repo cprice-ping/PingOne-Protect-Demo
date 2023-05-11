@@ -1,39 +1,24 @@
-function onPingOneSignalsReady(callback) {
-    if (window['_pingOneSignalsReady']) {
-        callback();
-    } else {
-        document.addEventListener('PingOneSignalsReadyEvent', callback);
-    }
+function submitForm(){
+  var formData = new FormData(document.getElementById('loginForm'))
+
+  getRiskDecision(formData.get("inputEmail"))
 }
-
-onPingOneSignalsReady(function () {
-
-    _pingOneSignals.initSilent({
-        // Point this to your P1 Risk EnvId
-        envId : "c85fe8e8-a62a-4acd-a4fa-8742ca4159e5"
-    }).then(function () {
-        console.log("PingOne Signals initialized successfully");
-        return _pingOneSignals.getData()
-     }).then(function (payload) {
-        // Store the payload value
-         document.getElementById("sdkPayload").innerText = payload
-    }).catch(function (e) {
-        console.error("SDK Init failed", e);
-        document.getElementById("sdkPayload").value = e
-    });
-});
 
 // Perform Risk Eval on button click event
 // This is a server-side call due to the P1 Protect request needing a Worker token
-async function getRiskDecision() {
-    
+async function getRiskDecision(username) {
+    console.log("getRiskDecision: ", username) 
+
     // External service to figure out the browser's ipAddress (v4)
-    const ipAddress = await fetch("https://api.ipify.org?format=json").then(res => res.json())
+    const ipAddress = await fetch("https://api.ipify.org?format=json").then(res => res.json()).catch(err => {console.log("Get IP Address Error: ", err); return {"ip": "127.0.0.1"} })
+
+    // Ask SDK for current payload
+    const sdkPayload = await _pingOneSignals.getData()
 
     let body = { 
-        "username" : document.getElementById("floatInputEmail").value,
-        "sdkpayload": document.getElementById("sdkPayload").innerText,
-        "ipAddress": ipAddress.ip 
+        "username" : username,
+        "sdkPayload": sdkPayload,
+        "ipAddress": ipAddress.ip
     } 
     
     // Pass payload to Server-side to perform the Risk Eval call
@@ -47,22 +32,23 @@ async function getRiskDecision() {
     })
     .then(res => res.json())
     .then(data => {
-        document.getElementById("riskResult").innerHTML = "<pre>"+JSON.stringify(data.result, null, 2)+"</pre>"
-        document.getElementById("riskDetails").innerHTML = "<pre>"+JSON.stringify(data, null, 2)+"</pre>"
+      document.getElementById("sdkPayload").innerText = sdkPayload
+      document.getElementById("riskResult").innerHTML = "<pre>"+JSON.stringify(data.result, null, 2)+"</pre>"
+      document.getElementById("riskDetails").innerHTML = "<pre>"+JSON.stringify(data, null, 2)+"</pre>"
 
-        // Extract the Predictor Values
-        const threatDetails = data.details
+      // Extract the Predictor Values
+      const threatDetails = data.details
 
-        const high = jsonPath(threatDetails,'$.[?(@.level === "HIGH")]')
-        const medium = jsonPath(threatDetails,'$.[?(@.level === "MEDIUM")].type')
-        const low = jsonPath(threatDetails,'$.[?(@.level === "LOW")].type')
+      const high = jsonPath(threatDetails,'$.[?(@.level === "HIGH")]')
+      const medium = jsonPath(threatDetails,'$.[?(@.level === "MEDIUM")].type')
+      const low = jsonPath(threatDetails,'$.[?(@.level === "LOW")].type')
 
-        // Populate Tabs
-        document.getElementById("predictorsHigh").innerHTML = "<pre>"+JSON.stringify(high, null, 2)+"</pre>"
-        document.getElementById("predictorsMed").innerHTML = "<pre>"+JSON.stringify(medium, null, 2)+"</pre>"
-        document.getElementById("predictorsLow").innerHTML = "<pre>"+JSON.stringify(low, null, 2)+"</pre>"
+      // Populate Tabs
+      document.getElementById("predictorsHigh").innerHTML = "<pre>"+JSON.stringify(high, null, 2)+"</pre>"
+      document.getElementById("predictorsMed").innerHTML = "<pre>"+JSON.stringify(medium, null, 2)+"</pre>"
+      document.getElementById("predictorsLow").innerHTML = "<pre>"+JSON.stringify(low, null, 2)+"</pre>"
 
-        showRiskResult()
+      showRiskResult()
     })
     .catch(err => console.log("getRiskDecision: ", err))
 }
