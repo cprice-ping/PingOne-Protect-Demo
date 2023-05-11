@@ -1,4 +1,3 @@
-# from pickle import FALSE
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -9,11 +8,21 @@ from selenium.webdriver.common.by import By
 import requests
 import time
 import json
+from fake_useragent import UserAgent
+
+options = Options()
+
+# Get new User-Agent
+ua = UserAgent()
+userAgent = ua.random
+print(userAgent)
+options.add_argument('user-agent={userAgent}')
 
 # Get some random user data for Registration
 getUser = requests.get('https://randomuser.me/api/')
 userDetails = getUser.json()
-userEmail = userDetails['results'][0]['name']['first']+"."+userDetails['results'][0]['name']['last']+"@mailinator.com"
+userEmail = userDetails['results'][0]['email']
+userPass = userDetails['results'][0]['login']['password']
 
 options = Options()
 options.add_argument('--headless')
@@ -29,6 +38,10 @@ startUrl = "http://localhost:3000/loginForm.html"
 # Get the web page and start the bot functions
 browser.get(startUrl)
 
+#get user Agent with execute_script
+a=browser.execute_script("return navigator.userAgent")
+print("User agent:", a)
+
 def startForm(userEmail):
     # Complete Email Form
     element = wait.until(EC.element_to_be_clickable((By.ID, 'inputEmail')))
@@ -36,7 +49,7 @@ def startForm(userEmail):
     element.send_keys(userEmail)
     print("Entering Password")
     element = wait.until(EC.element_to_be_clickable((By.ID, 'inputPassword')))
-    element.send_keys('botP@ssword12')
+    element.send_keys(userPass)
     print("Submiting Login Form")
     element = wait.until(EC.element_to_be_clickable((By.ID, 'submitLogin')))
     element.click()
