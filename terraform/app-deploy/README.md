@@ -2,11 +2,11 @@
 
 You can use Terraform to deploy the PingOne Protect application - supplied in this folder are various flavors.
 
-Each flavor contains 2 files:
+Each flavor may contain 2 files:
 
 | File Pattern | Description |
 | --- | --- |
-| `{deployment}-provider.tf` | This should be merged into the `/terraform/versions.tf` file |
+| `{deployment}-provider.tf` | [If `required.provider`] This should be merged into the `/terraform/versions.tf` file |
 | `{deployment}-resources.tf` | This should be copied into the `/terraform` folder and modified for your environment |
 
 ## Docker
@@ -31,11 +31,31 @@ The `k8s-resource.tf` shows an example of deploying the Application as a k8s Dep
 | Kubernetes | Service | Service pointing to the deployed app |
 | Kubernetes | Ingress | Inbound access to deployed app |
 
+Add the following to `vars.tf`:
+
+```hcl
+variable "k8s_namespace" {
+  type        = string
+  description = "K8s namespace for container deployment"
+}
+
+variable "k8s_deploy_name" {
+  type        = string
+  description = "Name used in the K8s deployment of the App. Used in Deployment \\ Service \\ Ingress delivery"
+}
+
+variable "k8s_deploy_domain" {
+  type        = string
+  description = "DNS Domain used when creating the Ingresses"
+}
+```
+
 Add the following variables to `terraform.tfvars`
 
 ```hcl
 k8s_deploy_name = "{{ Name for k8s to use in deployment}}"
 k8s_namespace = "{{ k8s namespace to deploy into}}"
-app_image_name="pricecs/p1-protect-demo:latest"
 k8s_deploy_domain="{{ DNS domain to use for Ingress }}"
 ```
+
+To see the deployed URL, swap out the `app_url` in `outputs.tf`

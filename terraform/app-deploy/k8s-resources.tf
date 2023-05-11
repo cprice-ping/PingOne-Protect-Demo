@@ -1,3 +1,7 @@
+provider "kubernetes" {
+  config_path = "~/.kube/config"
+}
+
 resource "kubernetes_ingress_v1" "package_ingress" {
   metadata {
     namespace = var.k8s_namespace
@@ -21,7 +25,7 @@ resource "kubernetes_ingress_v1" "package_ingress" {
             service {
               name = "${var.k8s_deploy_name}-app"
               port {
-                number = 4000
+                number = 3000
               }
             }
           }
@@ -60,29 +64,55 @@ resource "kubernetes_deployment" "demo_app" {
       }
       spec {
         container {
-          image             = var.app_image_name
+          image             = "pricecs/p1-protect-demo"
           name              = "${var.k8s_deploy_name}-app"
           image_pull_policy = "Always"
+          
+          security_context {
+            # run_as_non_root = true
+            allow_privilege_escalation = false
+            capabilities {
+              drop = ["ALL"]
+            }
+          }
+
+          resources {
+            limits = {
+              cpu    = "0.5"
+              memory = "512Mi"
+            }
+            requests = {
+              cpu    = "250m"
+              memory = "50Mi"
+            }
+          }
+
+          liveness_probe {
+            http_get {
+              path = "/"
+              port = 3000
+            }
+          }
 
           env {
             # PingOne EnvID
             name  = "ENVID"
-            value = module.environment.environment_id
+            value = pingone_environment.release_environment.id
           }
           env {
-            # P1 Environment ID
-            name  = "DVDOMAIN"
-            value = local.pingone_domain
+            # P1 OIDC Client ID
+            name  = "OIDCCLIENTID"
+            value = pingone_application.app_logon.oidc_options[0].client_id
           }
           env {
-            # P1 Environment ID
-            name  = "DVAPIKEY"
-            value = davinci_application.initial_policy.api_keys.prod
+            # P1 Worker App ID
+            name  = "WORKERID"
+            value = pingone_application.dv_worker_app.oidc_options[0].client_id
           }
           env {
-            # Client ID
-            name  = "DVPOLICYID"
-            value = local.app_policy[var.app_policy_name]
+            # P1 Worker App Secret
+            name  = "WORKERSECRET"
+            value = pingone_application.dv_worker_app.oidc_options[0].client_secret
           }
         }
 
@@ -102,8 +132,8 @@ resource "kubernetes_service" "demo_app" {
     }
     session_affinity = "ClientIP"
     port {
-      port        = var.app_port
-      target_port = var.app_port
+      port        = 3000
+      target_port = 3000
     }
 
     type = "ClusterIP"

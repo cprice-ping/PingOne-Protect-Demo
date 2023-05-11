@@ -53,31 +53,20 @@ variable "env_name" {
   description = "Name used for the PingOne Environment"
 }
 
-## Uncomment these if you're deploying into k8s
-# variable "k8s_namespace" {
-#   type        = string
-#   description = "K8s namespace for container deployment"
-# }
+variable "k8s_namespace" {
+  type        = string
+  description = "K8s namespace for container deployment"
+}
 
-# variable "k8s_deploy_name" {
-#   type        = string
-#   description = "Name used in the K8s deployment of the App. Used in Deployment \\ Service \\ Ingress delivery"
-# }
+variable "k8s_deploy_name" {
+  type        = string
+  description = "Name used in the K8s deployment of the App. Used in Deployment \\ Service \\ Ingress delivery"
+}
 
-# variable "k8s_deploy_domain" {
-#   type        = string
-#   description = "DNS Domain used when creating the Ingresses"
-# }
-
-# variable "app_image_name" {
-#   type        = string
-#   description = "Repo/Image:tag used for Proxy container"
-# }
-
-# variable "app_port" {
-#   type        = string
-#   description = "Port that the Docker container runs on"
-# }
+variable "k8s_deploy_domain" {
+  type        = string
+  description = "DNS Domain used when creating the Ingresses"
+}
 
 # variable "app_policy_name" {
 #   type        = string
@@ -85,8 +74,9 @@ variable "env_name" {
 # }
 
 locals {
-  ## Swap the `app_url` if you're deploying into k8s
+  # Swap if deployed with k8s
   # app_url = "https://${kubernetes_ingress_v1.package_ingress.spec[0].rule[0].host}"
+  # Docker URL
   app_url = "http://localhost:3000"
 
   # Translate the Region to a Domain suffix
