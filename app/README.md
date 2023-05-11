@@ -22,10 +22,10 @@ Create a `.env` file with the following:
 
 ```zsh
 # P1 Protect
-envId={{ Your deployed Environment }}
-oidcClientId={{ Client_ID of the OIDC login app }}
-workerId={{ Client_ID of a Worker App (Client_Secret_Basic) }}
-workerSecret={{ Client_Secret of the Worker App }}
+ENVID={{ Your deployed Environment }}
+OIDCCLIENTID={{ Client_ID of the OIDC login app }}
+WORKERID={{ Client_ID of a Worker App (Client_Secret_Basic) }}
+WORKERSECRET={{ Client_Secret of the Worker App }}
 ```
 
 The application should launch and be available on [https://localhost:3000](https://localhost:3000)
@@ -35,7 +35,7 @@ The application should launch and be available on [https://localhost:3000](https
 The sample app is also available using Docker:
 
 ```zsh
-docker run -p 3000:3000 -e envId={{ Your deployed Environment }} -e oidcClientId={{ Client_ID of the OIDC login app }} -e workerId={{ Client_ID of a Worker App (Client_Secret_Basic) }} -e workerSecret={{ Client_Secret of the Worker App }} pricecs/p1-protect-demo:latest
+docker run -p 3000:3000 -e ENVID={{ Your deployed Environment }} -e OIDCCLIENTID={{ Client_ID of the OIDC login app }} -e WORKERID={{ Client_ID of a Worker App (Client_Secret_Basic) }} -e WORKERSECRET={{ Client_Secret of the Worker App }} pricecs/p1-protect-demo:latest
 ```
 
 ### Kubernetes
