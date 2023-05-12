@@ -6,7 +6,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 import requests
-import time
+# import time
 import json
 from fake_useragent import UserAgent
 
@@ -15,20 +15,31 @@ options = Options()
 # Get new User-Agent
 ua = UserAgent()
 userAgent = ua.random
-print(userAgent)
+print("Requested UserAgent: ", userAgent)
 options.add_argument('user-agent={userAgent}')
+
+options.add_argument("--disable-blink-features=AutomationControlled")
+options.add_argument("--no-sandbox")
+options.add_argument("--disable-web-security")
+options.add_argument("--disable-xss-auditor")
+# options.add_argument('--headless')
+
+options.add_experimental_option("excludeSwitches", ["enable-automation"])
+options.add_experimental_option('useAutomationExtension', False)
+
+# browser = webdriver.Firefox(options=options)
+browser = webdriver.Chrome(options=options)
+
+browser.execute_script("Object.defineProperty(navigator, 'webdriver', {get: () => undefined})")
+browser.execute_cdp_cmd('Network.setUserAgentOverride', {"userAgent": userAgent})
+
+
 
 # Get some random user data for Registration
 getUser = requests.get('https://randomuser.me/api/')
 userDetails = getUser.json()
 userEmail = userDetails['results'][0]['email']
 userPass = userDetails['results'][0]['login']['password']
-
-options = Options()
-options.add_argument('--headless')
-
-# browser = webdriver.Firefox(options=options)
-browser = webdriver.Chrome(options=options)
 
 wait = WebDriverWait(browser, 10)
 
@@ -38,9 +49,8 @@ startUrl = "http://localhost:3000/loginForm.html"
 # Get the web page and start the bot functions
 browser.get(startUrl)
 
-#get user Agent with execute_script
-a=browser.execute_script("return navigator.userAgent")
-print("User agent:", a)
+# Get user Agent with execute_script
+print("Actual User agent:", browser.execute_script("return navigator.userAgent"))
 
 def startForm(userEmail):
     # Complete Email Form
