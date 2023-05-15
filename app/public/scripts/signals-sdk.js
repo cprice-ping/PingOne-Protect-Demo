@@ -19,9 +19,9 @@ onPingOneSignalsReady(async function () {
   .then(function () {
     console.log("PingOne Signals initialized successfully");
   })
-    // .then(function (payload) {
-    //   console.log("Payload created")
-  // })
+  .then(function (payload) {
+    console.log("Payload created")
+  })
   .catch(function (e) {
     console.error("SDK Init failed", e);
   });
