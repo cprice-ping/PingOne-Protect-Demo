@@ -1,3 +1,5 @@
+# This script uses Chrome to automate accessing a website that is integrated with PingOne Protect
+
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from webdriver_manager.chrome import ChromeDriverManager
