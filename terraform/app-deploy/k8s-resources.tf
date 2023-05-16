@@ -64,7 +64,7 @@ resource "kubernetes_deployment" "demo_app" {
       }
       spec {
         container {
-          image             = "pricecs/p1-protect-demo"
+          image             = "pricecs/p1-protect-demo:latest"
           name              = "${var.k8s_deploy_name}-app"
           image_pull_policy = "Always"
           
