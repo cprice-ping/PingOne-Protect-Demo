@@ -12,7 +12,9 @@ RUN apt-get -y update
 # Magic happens
 RUN apt-get install -y google-chrome-stable
 
-COPY . /app
+COPY ./requirements.txt /app/
+COPY ./chromedriver /app/
+COPY ./p1-protect-script-native.py /app/
 WORKDIR /app
 
 RUN pip install --upgrade pip
