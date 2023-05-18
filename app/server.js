@@ -74,12 +74,12 @@ fastify.post("/postForm", (req, res) => {
 fastify.all("/getRiskDecision", (req, res) => { 
     
   const userAgent = req.headers['user-agent']
-  console.log("UserAgent: ", userAgent)
+
   const username = req.body.username
   const ipAddress = req.body.ipAddress || req.headers['x-forwarded-for'].split(",")[0]
   const sdkpayload = req.body.sdkPayload
   
-  console.log("Getting Risk Eval for: ", username)
+  // console.log("Protect Request: ", username)
 
   getProtectDecision(ipAddress, sdkpayload, username, riskDetails => {
     res.send(riskDetails)
@@ -92,8 +92,6 @@ fastify.all("/getRiskDecision", (req, res) => {
 * This call is on the Server-Side because it requires a P1 Worker token
 *****************************************/
 function getProtectDecision(ipAddress, sdkpayload, username, cb){
-
-  // console.log("Get Decision: ", ipAddress, sdkpayload, username)
 
   // Get P1 Worker Token
   getPingOneToken(pingOneToken => {
@@ -129,7 +127,7 @@ function getProtectDecision(ipAddress, sdkpayload, username, cb){
           "type": "EXTERNAL"
         },
         "sharingType": "PRIVATE", 
-        "origin": "FACILE_DEMO" 
+        "origin": "P1_PROTECT_DEMO" 
       }
     }
     
@@ -141,7 +139,8 @@ function getProtectDecision(ipAddress, sdkpayload, username, cb){
     })
     .then(response => response.json())
     .then(data => {
-        //console.log("Data: ", data)
+        const responseLog = {"userID": data.event.user.id, "level": data.result.level, "id": data.id }
+        console.log(responseLog)
         cb(data)
     })
     .catch(err => {
