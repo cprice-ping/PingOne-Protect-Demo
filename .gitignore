@@ -40,4 +40,4 @@ terraform.rc
 **/.env
 .DS_Store
 *.hcl
-geckodriver.log
+*.log

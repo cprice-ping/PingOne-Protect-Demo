@@ -13,7 +13,7 @@
       href="https://cdn.glitch.com/a766be66-dd8a-4fa9-adb0-382568f98cae%2FD0DE7B9A-1F4C-4DFF-9FFD-5A53A78AFA9E.png?v=1630464370995"
     />
     <script
-      src="https://assets.pingone.com/signals/web-sdk/5.2.1/signals-sdk.js"
+      src="https://assets.pingone.com/signals/web-sdk/5.2.6/signals-sdk.js"
       defer
     ></script>
   </head>
@@ -32,12 +32,12 @@
             <p>
               When the page loads, the SDK is initialized and is ready to profile the device.
             </p>
-            <input class="d-none" id="floatInputEmail" value="facile-user">
-            <button class="btn btn-primary mb-3 shadow" id="formSubmit" onclick="getRiskDecision()">
+            <button class="btn btn-primary mb-3 shadow" id="getRiskDecision" onclick="getRiskDecision('facile-user')">
               Get Decision
             </button>
             <div class="card-footer bg-white text-end">
-              <a href="/oidc.html"class="card-link text-start">DaVinci Integration</a>
+              <a href="/loginForm.html"class="card-link text-start">Native Form</a>
+              <a href="/oidc.html"class="card-link text-start">DaVinci</a>
               <a href="https://github.com/cprice-ping/PingOne-Protect-Demo" class="card-link">View Code</a>
               <a href="https://apidocs.pingidentity.com/pingone/native-sdks/v1/api/#pingone-risk-sdk-for-web" class="card-link" target="_blank">Signals SDK</a>
               <a href="https://apidocs.pingidentity.com/pingone/platform/v1/api/#post-create-risk-evaluation" class="card-link" target="_blank">P1 Protect API</a>
@@ -111,10 +111,8 @@
       </div>
     </div>
   </body>
-  <script src="/scripts/jsonpath.js" defer></script>
   <!-- Load the script used to execute the Signals SDK profiling and make the P1 Protect evaluation call -->
-  <script
-      src="/scripts/profile.js"
-      defer
-  ></script>
+  <script src="/scripts/signals-sdk.js" defer></script>
+  <script src="/scripts/eval-decision.js" defer></script>
+  <script src="/scripts/jsonpath.js" defer></script>
 </html>
