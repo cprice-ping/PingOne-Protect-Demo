@@ -13,7 +13,8 @@ onPingOneSignalsReady(async function () {
   const runtimeDetails = await fetch("/getRuntimeDetails").then(res => res.json())
 
   _pingOneSignals.init({
-    behavioralDataCollection: false
+    // Set to `true` if using the Behavior Predictors (Bot Detect)
+    behavioralDataCollection: true
   })
   .then(function () {
     console.log("PingOne Signals initialized successfully");
