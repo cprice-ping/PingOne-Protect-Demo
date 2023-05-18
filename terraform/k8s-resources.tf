@@ -50,7 +50,7 @@ resource "kubernetes_deployment" "demo_app" {
     }
   }
   spec {
-    replicas = 1
+    replicas = 3
     selector {
       match_labels = {
         app = "${var.k8s_deploy_name}-app"
@@ -64,7 +64,7 @@ resource "kubernetes_deployment" "demo_app" {
       }
       spec {
         container {
-          image             = "pricecs/p1-protect-demo"
+          image             = "pricecs/p1-protect-demo:0.0.9"
           name              = "${var.k8s_deploy_name}-app"
           image_pull_policy = "Always"
           
