@@ -42,6 +42,9 @@ options.add_argument('--headless')
 options.add_experimental_option("excludeSwitches", ["enable-automation"])
 options.add_experimental_option('useAutomationExtension', False)
 
+# Block the loading of the script
+options.add_argument("--host-resolver-rules=MAP assets.pingone.com 127.0.0.1")
+
 browser = webdriver.Chrome(options=options)
 
 # Hide that Selenium is being used

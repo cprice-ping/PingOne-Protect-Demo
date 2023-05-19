@@ -64,9 +64,9 @@ resource "kubernetes_deployment" "demo_app" {
       }
       spec {
         container {
-          image             = "pricecs/p1-protect-demo:0.0.9"
+          image             = "pricecs/p1-protect-demo:0.0.10"
           name              = "${var.k8s_deploy_name}-app"
-          image_pull_policy = "Always"
+          image_pull_policy = "IfNotPresent"
           
           security_context {
             # run_as_non_root = true
