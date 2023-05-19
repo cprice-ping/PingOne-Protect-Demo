@@ -1,5 +1,9 @@
 FROM python:3.9
 
+LABEL version="0.0.7"
+LABEL description="Python \ Selenium script"
+LABEL maintainer="Chris Price <cprice@pingidentity.com>"
+
 # Adding trusting keys to apt for repositories
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
 

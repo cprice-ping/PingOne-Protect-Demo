@@ -4,7 +4,7 @@ import requests
 import time
 import json
 import os
-from random import randint
+import random
 # import UserAgent generator
 from fake_useragent import UserAgent
 # Import Selenium components
@@ -16,7 +16,7 @@ from selenium.webdriver.common.by import By
 
 options = Options()
 
-time.sleep(randint(1,5))
+time.sleep(random.randint(1,5))
 
 # URL of where to run this bot - If not `localhost`, it's injected via STARTURL environment variable 
 # Note: If using Docker, the image can't be running on `locahost` - deploy into k8s \ Azure \ AWS \ etc
@@ -66,29 +66,42 @@ def startForm(userEmail):
     # Complete Email Form
     element = wait.until(EC.element_to_be_clickable((By.ID, 'inputEmail')))
     print("Entering Email Address: ", userEmail)
-    element.send_keys(userEmail)
+    # Simulate random typing cadance
+    simulateTyping(element, userEmail)
+    # Add a random <300ms delay before moving to Password field
+    time.sleep(random.uniform(2, 5)/10)
     print("Entering Password")
     element = wait.until(EC.element_to_be_clickable((By.ID, 'inputPassword')))
-    element.send_keys(userPass)
-    # time.sleep(1)
+    simulateTyping(element, userPass)
+    # Add a random <300ms delay before pressing button
+    time.sleep(random.uniform(2, 5)/10)
     print("Submiting Login Form")
     element = wait.until(EC.element_to_be_clickable((By.ID, 'submitLogin')))
     element.click()
+
+def simulateTyping(element, string):
+    for character in string:
+        element.send_keys(character)
+        delay = random.randint(1000, 4000)/10000
+        time.sleep(delay)
 
 # Script Starts here:
 print("Logon: "+userEmail)
 startForm(userEmail)
 
-# Capture and show the Risk Result
-element = wait.until(EC.text_to_be_present_in_element_attribute((By.ID, 'riskDetails'), "innerHTML", "level"))
-element = wait.until(EC.presence_of_element_located((By.ID, 'riskResult')))
+try:
+    # Capture and show the Risk Result
+    element = wait.until(EC.text_to_be_present_in_element_attribute((By.ID, 'riskDetails'), "innerHTML", "level"))
+    element = wait.until(EC.presence_of_element_located((By.ID, 'riskResult')))
 
-# Output the Risk Decision Level
-riskResult=json.loads(element.get_attribute("innerText"))
-print("Risk Level: ", riskResult["level"])
+    # Output the Risk Decision Level
+    riskResult=json.loads(element.get_attribute("innerText"))
+    print("Risk Level: ", riskResult["level"])
 
-# Output the HIGH Predictors
-element = wait.until(EC.presence_of_element_located((By.ID, 'predictorsHigh')))
-print("HIGH Predictors: ", element.get_attribute("innerText"))
+    # Output the HIGH Predictors
+    element = wait.until(EC.presence_of_element_located((By.ID, 'predictorsHigh')))
+    print("HIGH Predictors: ", element.get_attribute("innerText"))
+except:
+    print("P1 Protect response too too long")
 
 browser.quit()
