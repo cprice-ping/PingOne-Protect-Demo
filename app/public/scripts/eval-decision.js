@@ -1,6 +1,5 @@
 function submitForm(){
   var formData = new FormData(document.getElementById('loginForm'))
-
   getRiskDecision(formData.get("inputEmail"))
 }
 
@@ -13,7 +12,12 @@ async function getRiskDecision(username) {
     const ipAddress = await fetch("https://api.ipify.org?format=json").then(res => res.json()).catch(err => {console.log("Get IP Address Error: ", err); return {"ip": "127.0.0.1"} })
 
     // Ask SDK for current payload
-    const sdkPayload = await _pingOneSignals.getData()
+    let sdkPayload = ""
+    if (typeof _pingOneSignals === "function"){
+      sdkPayload = await _pingOneSignals.getData()
+    } else {
+      console.log("Signals Payload not generated")
+    }
 
     let body = { 
         "username" : username,

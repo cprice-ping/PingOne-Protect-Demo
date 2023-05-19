@@ -81,7 +81,7 @@ fastify.all("/getRiskDecision", (req, res) => {
   
   // console.log("Protect Request: ", username)
 
-  getProtectDecision(ipAddress, sdkpayload, username, riskDetails => {
+  getProtectDecision(ipAddress, sdkpayload, username, userAgent, riskDetails => {
     res.send(riskDetails)
   })
 })
@@ -91,7 +91,7 @@ fastify.all("/getRiskDecision", (req, res) => {
 *
 * This call is on the Server-Side because it requires a P1 Worker token
 *****************************************/
-function getProtectDecision(ipAddress, sdkpayload, username, cb){
+function getProtectDecision(ipAddress, sdkpayload, username, userAgent, cb){
 
   // Get P1 Worker Token
   getPingOneToken(pingOneToken => {
@@ -113,6 +113,7 @@ function getProtectDecision(ipAddress, sdkpayload, username, cb){
             "name": "Signals SDK demo"
         },
         "ip": ipAddress,
+        "userAgent": userAgent,
         "sdk": {
           "signals": {
               "data": sdkpayload // Signals SDK payload from Client
@@ -139,6 +140,7 @@ function getProtectDecision(ipAddress, sdkpayload, username, cb){
     })
     .then(response => response.json())
     .then(data => {
+        // console.log("Risk Response: ", data)
         const responseLog = {"userID": data.event.user.id, "level": data.result.level, "id": data.id }
         console.log(responseLog)
         cb(data)
