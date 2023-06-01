@@ -1,5 +1,5 @@
 {
-  "companyId": "5616de37-1dd8-404d-b9b6-b8cc2361600c",
+  "companyId": "3321f493-1d7e-4268-af64-f174132cb381",
   "authTokenExpireIds": [],
   "connectorIds": [
     "pingOneRiskConnector",
@@ -9,10 +9,10 @@
     "httpConnector",
     "annotationConnector"
   ],
-  "createdDate": 1682524703473,
-  "currentVersion": 11,
-  "customerId": "35f33bbaf301dfa496ccb7eee32d9c0e",
-  "deployedDate": 1682524711902,
+  "createdDate": 1685596137785,
+  "currentVersion": 41,
+  "customerId": "77f1978ad8c8c3c050419e8b14dfe244",
+  "deployedDate": 1685596140404,
   "description": "(PingOne Users) Perform Assessment and send email on New Device",
   "flowStatus": "enabled",
   "inputSchemaCompiled": {
@@ -21,24 +21,31 @@
       "properties": {
         "userId": {
           "description": "",
-          "preferredDataType": "string",
           "isExpanded": true,
+          "preferredDataType": "string",
           "type": "string",
           "name": "userId"
         },
         "signalsPayload": {
           "description": "",
-          "preferredDataType": "string",
           "isExpanded": true,
+          "preferredDataType": "string",
           "type": "string",
           "name": "signalsPayload"
         },
         "action": {
           "description": "",
+          "isExpanded": true,
+          "preferredDataType": "string",
+          "type": "string",
+          "name": "action"
+        },
+        "userName": {
+          "description": "",
           "preferredDataType": "string",
           "isExpanded": true,
           "type": "string",
-          "name": "action"
+          "name": "userName"
         }
       },
       "additionalProperties": false,
@@ -46,17 +53,19 @@
     }
   },
   "isInputSchemaSaved": true,
+  "isOutputSchemaSaved": false,
   "name": "[Sub] P1 Protect with New Device notification",
-  "publishedVersion": 11,
+  "publishedVersion": 41,
   "settings": {
     "csp": "worker-src 'self' blob:; script-src 'self' https://cdn.jsdelivr.net https://code.jquery.com https://devsdk.singularkey.com http://cdnjs.cloudflare.com 'unsafe-inline' 'unsafe-eval';",
     "intermediateLoadingScreenCSS": "",
     "intermediateLoadingScreenHTML": "",
-    "logLevel": 2
+    "logLevel": 3
   },
-  "updatedDate": 1682524711902,
-  "flowId": "f368502ecc27965646bd55a6cf7ac04c",
-  "versionId": 11,
+  "trigger": {},
+  "updatedDate": 1685596140404,
+  "flowId": "2593793990ed16ddbe18088edb004b1c",
+  "versionId": 41,
   "graphData": {
     "elements": {
       "nodes": [
@@ -64,7 +73,7 @@
           "data": {
             "id": "doinfknvht",
             "nodeType": "CONNECTION",
-            "connectionId": "4c653c375e07bdf8614406113f998666",
+            "connectionId": "292873d5ceea806d81373ed0341b5c88",
             "connectorId": "pingOneRiskConnector",
             "name": "PingOne Risk",
             "label": "PingOne Risk",
@@ -72,8 +81,8 @@
             "capabilityName": "createRiskEvaluation",
             "type": "action",
             "properties": {
-              "userId": {
-                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"pingIdentity.svg\",\n        \"url\": \"id\",\n        \"data\": \"{{local.oezdwfbk0l.payload.output.matchedUser.id}}\",\n        \"tooltip\": \"{{local.oezdwfbk0l.payload.output.matchedUser.id}}\",\n        \"children\": [\n          {\n            \"text\": \"id\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              "flowType": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"auth.svg\",\n        \"url\": \"action\",\n        \"data\": \"{{global.parameters.action}}\",\n        \"tooltip\": \"{{global.parameters.action}}\",\n        \"children\": [\n          {\n            \"text\": \"action\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
               },
               "ipAddress": {
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"auth.svg\",\n        \"url\": \"ip\",\n        \"data\": \"{{global.ip}}\",\n        \"tooltip\": \"{{global.ip}}\",\n        \"children\": [\n          {\n            \"text\": \"ip\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
@@ -81,19 +90,19 @@
               "skRiskFP": {
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"auth.svg\",\n        \"url\": \"signalsPayload\",\n        \"data\": \"{{global.parameters.signalsPayload}}\",\n        \"tooltip\": \"{{global.parameters.signalsPayload}}\",\n        \"children\": [\n          {\n            \"text\": \"signalsPayload\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
               },
+              "userId": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"auth.svg\",\n        \"url\": \"userId\",\n        \"data\": \"{{global.parameters.userId}}\",\n        \"tooltip\": \"{{global.parameters.userId}}\",\n        \"children\": [\n          {\n            \"text\": \"userId\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              },
               "userType": {
                 "value": "PING_ONE"
               },
               "userName": {
-                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"pingIdentity.svg\",\n        \"url\": \"username\",\n        \"data\": \"{{local.oezdwfbk0l.payload.output.matchedUser.username}}\",\n        \"tooltip\": \"{{local.oezdwfbk0l.payload.output.matchedUser.username}}\",\n        \"children\": [\n          {\n            \"text\": \"username\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
-              },
-              "flowType": {
-                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"auth.svg\",\n        \"url\": \"action\",\n        \"data\": \"{{global.parameters.action}}\",\n        \"tooltip\": \"{{global.parameters.action}}\",\n        \"children\": [\n          {\n            \"text\": \"action\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"auth.svg\",\n        \"url\": \"userName\",\n        \"data\": \"{{global.parameters.userName}}\",\n        \"tooltip\": \"{{global.parameters.userName}}\",\n        \"children\": [\n          {\n            \"text\": \"userName\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
               }
             }
           },
           "position": {
-            "x": 551,
+            "x": 300,
             "y": 510
           },
           "group": "nodes",
@@ -109,10 +118,11 @@
           "data": {
             "id": "788w2bi2a6",
             "nodeType": "EVAL",
-            "label": "Evaluator"
+            "label": "Evaluator",
+            "properties": {}
           },
           "position": {
-            "x": 671,
+            "x": 420,
             "y": 510
           },
           "group": "nodes",
@@ -136,19 +146,19 @@
             "capabilityName": "AEqualsB",
             "type": "trigger",
             "properties": {
+              "leftValueA": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"pingIdentity.svg\",\n        \"url\": \"status\",\n        \"data\": \"{{local.doinfknvht.payload.output.rawResponse.details.newDevice.status}}\",\n        \"tooltip\": \"{{local.doinfknvht.payload.output.rawResponse.details.newDevice.status}}\",\n        \"children\": [\n          {\n            \"text\": \"status\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              },
               "nodeTitle": {
                 "value": "Is this a known device?"
               },
               "rightValueB": {
                 "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"KNOWN_DEVICE\"\n      }\n    ]\n  }\n]"
-              },
-              "leftValueA": {
-                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"pingIdentity.svg\",\n        \"url\": \"status\",\n        \"data\": \"{{local.doinfknvht.payload.output.rawResponse.details.newDevice.status}}\",\n        \"tooltip\": \"{{local.doinfknvht.payload.output.rawResponse.details.newDevice.status}}\",\n        \"children\": [\n          {\n            \"text\": \"status\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
               }
             }
           },
           "position": {
-            "x": 791,
+            "x": 570,
             "y": 510
           },
           "group": "nodes",
@@ -168,19 +178,22 @@
               "b47vzy9r7f": {
                 "value": "always"
               },
-              "undefined": {
-                "value": "allTriggersFalse"
-              },
               "ipcg96xi24": {
                 "value": "allTriggersFalse"
               },
               "lqpu8ajkkq": {
                 "value": "always"
+              },
+              "undefined": {
+                "value": "allTriggersFalse"
+              },
+              "oezdwfbk0l": {
+                "value": "allTriggersFalse"
               }
             }
           },
           "position": {
-            "x": 911,
+            "x": 690,
             "y": 510
           },
           "group": "nodes",
@@ -204,11 +217,14 @@
             "capabilityName": "sendEmail",
             "type": "action",
             "properties": {
-              "templateVariant": {
-                "value": "New Device - Login"
+              "customTemplateVariant": {
+                "value": "{}"
               },
-              "userId": {
-                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"pingIdentity.svg\",\n        \"url\": \"id\",\n        \"data\": \"{{local.oezdwfbk0l.payload.output.matchedUser.id}}\",\n        \"tooltip\": \"{{local.oezdwfbk0l.payload.output.matchedUser.id}}\",\n        \"children\": [\n          {\n            \"text\": \"id\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              "email": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"pingIdentity.svg\",\n        \"url\": \"email\",\n        \"data\": \"{{local.oezdwfbk0l.payload.output.matchedUser.email}}\",\n        \"tooltip\": \"{{local.oezdwfbk0l.payload.output.matchedUser.email}}\",\n        \"children\": [\n          {\n            \"text\": \"email\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"auth.svg\",\n        \"url\": \"userId\",\n        \"data\": \"{{global.parameters.userId}}\",\n        \"tooltip\": \"{{global.parameters.userId}}\",\n        \"children\": [\n          {\n            \"text\": \"userId\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              },
+              "nodeTitle": {
+                "value": "Send Email to User"
               },
               "templateVariables": {
                 "value": [
@@ -244,14 +260,11 @@
                   }
                 ]
               },
-              "email": {
-                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"pingIdentity.svg\",\n        \"url\": \"email\",\n        \"data\": \"{{local.oezdwfbk0l.payload.output.matchedUser.email}}\",\n        \"tooltip\": \"{{local.oezdwfbk0l.payload.output.matchedUser.email}}\",\n        \"children\": [\n          {\n            \"text\": \"email\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
+              "templateVariant": {
+                "value": "New Device - Login"
               },
-              "customTemplateVariant": {
-                "value": "{}"
-              },
-              "nodeTitle": {
-                "value": "Send Email to User"
+              "userId": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"pingIdentity.svg\",\n        \"url\": \"id\",\n        \"data\": \"{{local.oezdwfbk0l.payload.output.matchedUser.id}}\",\n        \"tooltip\": \"{{local.oezdwfbk0l.payload.output.matchedUser.id}}\",\n        \"children\": [\n          {\n            \"text\": \"id\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
               }
             }
           },
@@ -286,40 +299,17 @@
                   "email"
                 ]
               },
-              "userIdentifierForFindUser": {
-                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"auth.svg\",\n        \"url\": \"userId\",\n        \"data\": \"{{global.parameters.userId}}\",\n        \"tooltip\": \"{{global.parameters.userId}}\",\n        \"children\": [\n          {\n            \"text\": \"userId\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
-              },
               "nodeTitle": {
                 "value": "Get Users Email"
+              },
+              "userIdentifierForFindUser": {
+                "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"auth.svg\",\n        \"url\": \"userId\",\n        \"data\": \"{{global.parameters.userId}}\",\n        \"tooltip\": \"{{global.parameters.userId}}\",\n        \"children\": [\n          {\n            \"text\": \"userId\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
               }
             }
           },
           "position": {
-            "x": 311,
-            "y": 510
-          },
-          "group": "nodes",
-          "removed": false,
-          "selected": false,
-          "selectable": true,
-          "locked": false,
-          "grabbable": true,
-          "pannable": false,
-          "classes": ""
-        },
-        {
-          "data": {
-            "id": "wrsi6dc7zg",
-            "nodeType": "EVAL",
-            "properties": {
-              "l09d1yxha3": {
-                "value": "allTriggersFalse"
-              }
-            }
-          },
-          "position": {
-            "x": 431,
-            "y": 510
+            "x": 840,
+            "y": 390
           },
           "group": "nodes",
           "removed": false,
@@ -334,7 +324,7 @@
           "data": {
             "id": "lqpu8ajkkq",
             "nodeType": "CONNECTION",
-            "connectionId": "481e952e6b11db8360587b8711620786",
+            "connectionId": "867ed4363b2bc21c860085ad2baa817d",
             "connectorId": "httpConnector",
             "name": "HTTP",
             "label": "HTTP",
@@ -342,45 +332,44 @@
             "capabilityName": "createSuccessResponse",
             "type": "action",
             "properties": {
-              "returnRequestParameters": {
-                "value": false
-              },
-              "nodeTitle": {
-                "value": "Return P1 Protect decision"
-              },
               "backgroundColor": {
                 "value": "#7ed321ff"
               },
               "claimsNameValuePairs": {
                 "value": [
                   {
-                    "name": "riskLevel",
-                    "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"pingIdentity.svg\",\n        \"url\": \"level\",\n        \"data\": \"{{local.doinfknvht.payload.output.rawResponse.result.level}}\",\n        \"tooltip\": \"{{local.doinfknvht.payload.output.rawResponse.result.level}}\",\n        \"children\": [\n          {\n            \"text\": \"level\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]",
                     "key": 0.20803210865605282,
                     "label": "riskLevel (string - flowInstance)",
+                    "name": "riskLevel",
+                    "nameDefault": "level",
                     "type": "string",
-                    "nameDefault": "level"
+                    "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"pingIdentity.svg\",\n        \"url\": \"level\",\n        \"data\": \"{{local.doinfknvht.payload.output.rawResponse.result.level}}\",\n        \"tooltip\": \"{{local.doinfknvht.payload.output.rawResponse.result.level}}\",\n        \"children\": [\n          {\n            \"text\": \"level\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
                   },
                   {
-                    "name": "riskEvalId",
-                    "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"pingIdentity.svg\",\n        \"url\": \"id\",\n        \"data\": \"{{local.doinfknvht.payload.output.rawResponse.id}}\",\n        \"tooltip\": \"{{local.doinfknvht.payload.output.rawResponse.id}}\",\n        \"children\": [\n          {\n            \"text\": \"id\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]",
                     "key": 0.05287784630577297,
                     "label": "riskEvalId (string - flowInstance)",
+                    "name": "riskEvalId",
+                    "nameDefault": "id",
                     "type": "string",
-                    "nameDefault": "id"
+                    "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"pingIdentity.svg\",\n        \"url\": \"id\",\n        \"data\": \"{{local.doinfknvht.payload.output.rawResponse.id}}\",\n        \"tooltip\": \"{{local.doinfknvht.payload.output.rawResponse.id}}\",\n        \"children\": [\n          {\n            \"text\": \"id\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
                   },
                   {
-                    "name": "riskEvalDetails",
-                    "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"pingIdentity.svg\",\n        \"url\": \"details\",\n        \"data\": \"{{local.doinfknvht.payload.output.rawResponse.details}}\",\n        \"tooltip\": \"{{local.doinfknvht.payload.output.rawResponse.details}}\",\n        \"children\": [\n          {\n            \"text\": \"details\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]",
                     "key": 0.892330007086556,
                     "label": "riskEvalDetails (string - flowInstance)",
+                    "name": "riskEvalDetails",
+                    "nameDefault": "details",
                     "type": "string",
-                    "nameDefault": "details"
+                    "value": "[\n  {\n    \"children\": [\n      {\n        \"text\": \"\"\n      },\n      {\n        \"text\": \"\"\n      },\n      {\n        \"type\": \"link\",\n        \"src\": \"pingIdentity.svg\",\n        \"url\": \"details\",\n        \"data\": \"{{local.doinfknvht.payload.output.rawResponse.details}}\",\n        \"tooltip\": \"{{local.doinfknvht.payload.output.rawResponse.details}}\",\n        \"children\": [\n          {\n            \"text\": \"details\"\n          }\n        ]\n      },\n      {\n        \"text\": \"\"\n      }\n    ]\n  }\n]"
                   }
                 ]
+              },
+              "nodeTitle": {
+                "value": "Return P1 Protect decision"
+              },
+              "returnRequestParameters": {
+                "value": false
               }
-            },
-            "idUnique": "ogflx3sxgu"
+            }
           },
           "position": {
             "x": 1080,
@@ -397,70 +386,35 @@
         },
         {
           "data": {
-            "id": "l09d1yxha3",
-            "nodeType": "CONNECTION",
-            "connectionId": "481e952e6b11db8360587b8711620786",
-            "connectorId": "httpConnector",
-            "name": "HTTP",
-            "label": "HTTP",
-            "status": "configured",
-            "capabilityName": "createErrorResponse",
-            "type": "action",
-            "properties": {
-              "nodeTitle": {
-                "value": "FAILURE"
-              },
-              "backgroundColor": {
-                "value": "#d0021bff"
-              },
-              "nodeDescription": {
-                "value": "If User Email isn't found"
-              }
-            }
-          },
-          "position": {
-            "x": 551,
-            "y": 390
-          },
-          "group": "nodes",
-          "removed": false,
-          "selected": false,
-          "selectable": true,
-          "locked": false,
-          "grabbable": true,
-          "pannable": false,
-          "classes": ""
-        },
-        {
-          "data": {
             "id": "9djg1utyp2",
             "nodeType": "ANNOTATION",
-            "name": "Annotation",
             "connectionId": "921bfae85c38ed45045e07be703d86b8",
             "connectorId": "annotationConnector",
+            "name": "Annotation",
+            "status": "configured",
             "capabilityName": "updateAnnotationProperties",
             "type": "action",
             "properties": {
-              "backgroundColor": {
-                "value": "#f7f7adff"
+              "annotation": {
+                "value": "Input Schema: sdkPayload (String) \\ userId (String) \\ action (String)"
               },
               "annotationTextColor": {
                 "value": "#000000"
               },
-              "annotation": {
-                "value": "Input Schema: sdkPayload (String) \\ userId (String) \\ action (String)"
+              "backgroundColor": {
+                "value": "#f7f7adff"
               },
-              "width": {
-                "value": 400
-              },
-              "fontSize": {
-                "value": 14
+              "cornerRadius": {
+                "value": 8
               },
               "fontFamily": {
                 "value": "sans-serif"
               },
-              "cornerRadius": {
-                "value": 8
+              "fontSize": {
+                "value": 14
+              },
+              "strokeColor": {
+                "value": "#181818ff"
               },
               "strokeEnabled": {
                 "value": false
@@ -468,12 +422,10 @@
               "strokeWidth": {
                 "value": 1
               },
-              "strokeColor": {
-                "value": "#181818ff"
+              "width": {
+                "value": 400
               }
-            },
-            "status": "configured",
-            "idUnique": "940rm8qjb1"
+            }
           },
           "position": {
             "x": 214,
@@ -492,38 +444,38 @@
           "data": {
             "id": "f8242lvtqn",
             "nodeType": "ANNOTATION",
-            "name": "Annotation",
             "connectionId": "921bfae85c38ed45045e07be703d86b8",
             "connectorId": "annotationConnector",
+            "name": "Annotation",
+            "status": "configured",
             "capabilityName": "updateAnnotationProperties",
             "type": "action",
             "properties": {
-              "backgroundColor": {
-                "value": "#4462edff"
+              "annotation": {
+                "value": "Perform P1 Protect Assessment"
               },
               "annotationTextColor": {
                 "value": "#ffffffff"
               },
-              "annotation": {
-                "value": "Perform P1 Protect Assessment"
+              "backgroundColor": {
+                "value": "#4462edff"
               },
-              "width": {
-                "value": 1000
-              },
-              "fontStyle": {
-                "value": "bold"
-              },
-              "fontSize": {
-                "value": 16
+              "cornerRadius": {
+                "value": 8
               },
               "fontFamily": {
                 "value": "sans-serif"
               },
-              "cornerRadius": {
-                "value": 8
+              "fontSize": {
+                "value": 16
+              },
+              "fontStyle": {
+                "value": "bold"
+              },
+              "width": {
+                "value": 1000
               }
-            },
-            "status": "configured"
+            }
           },
           "position": {
             "x": 214,
@@ -537,9 +489,70 @@
           "grabbable": true,
           "pannable": false,
           "classes": ""
+        },
+        {
+          "data": {
+            "id": "prvw0qpx0g",
+            "nodeType": "EVAL",
+            "properties": {
+              "ipcg96xi24": {
+                "value": "always"
+              }
+            }
+          },
+          "position": {
+            "x": 960,
+            "y": 390
+          },
+          "group": "nodes",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": false,
+          "classes": ""
         }
       ],
       "edges": [
+        {
+          "data": {
+            "id": "lvp8pjhxw6",
+            "source": "788w2bi2a6",
+            "target": "aawprwwv2i"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
+        {
+          "data": {
+            "id": "f6nptrt58k",
+            "source": "o3u5d3cfdm",
+            "target": "lqpu8ajkkq"
+          },
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "group": "edges",
+          "removed": false,
+          "selected": false,
+          "selectable": true,
+          "locked": false,
+          "grabbable": true,
+          "pannable": true,
+          "classes": ""
+        },
         {
           "data": {
             "id": "c6uc8k7m97",
@@ -580,28 +593,9 @@
         },
         {
           "data": {
-            "id": "lvp8pjhxw6",
-            "source": "788w2bi2a6",
-            "target": "aawprwwv2i"
-          },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
-          "group": "edges",
-          "removed": false,
-          "selected": false,
-          "selectable": true,
-          "locked": false,
-          "grabbable": true,
-          "pannable": true,
-          "classes": ""
-        },
-        {
-          "data": {
-            "id": "gem4et5319",
+            "id": "9u0lh3pqzv",
             "source": "o3u5d3cfdm",
-            "target": "ipcg96xi24"
+            "target": "oezdwfbk0l"
           },
           "position": {
             "x": 0,
@@ -618,9 +612,9 @@
         },
         {
           "data": {
-            "id": "mxygpv002a",
+            "id": "uwzphf3nrs",
             "source": "oezdwfbk0l",
-            "target": "wrsi6dc7zg"
+            "target": "prvw0qpx0g"
           },
           "position": {
             "x": 0,
@@ -637,47 +631,9 @@
         },
         {
           "data": {
-            "id": "kkp1451kr1",
-            "source": "wrsi6dc7zg",
-            "target": "doinfknvht"
-          },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
-          "group": "edges",
-          "removed": false,
-          "selected": false,
-          "selectable": true,
-          "locked": false,
-          "grabbable": true,
-          "pannable": true,
-          "classes": ""
-        },
-        {
-          "data": {
-            "id": "f6nptrt58k",
-            "source": "o3u5d3cfdm",
-            "target": "lqpu8ajkkq"
-          },
-          "position": {
-            "x": 0,
-            "y": 0
-          },
-          "group": "edges",
-          "removed": false,
-          "selected": false,
-          "selectable": true,
-          "locked": false,
-          "grabbable": true,
-          "pannable": true,
-          "classes": ""
-        },
-        {
-          "data": {
-            "id": "ti2v4nb3a2",
-            "source": "wrsi6dc7zg",
-            "target": "l09d1yxha3"
+            "id": "mn35b58w8l",
+            "source": "prvw0qpx0g",
+            "target": "ipcg96xi24"
           },
           "position": {
             "x": 0,
@@ -713,29 +669,36 @@
   },
   "inputSchema": [
     {
-      "propertyName": "userId",
       "description": "",
-      "preferredDataType": "string",
+      "isExpanded": true,
       "preferredControlType": "textField",
-      "isExpanded": true
+      "preferredDataType": "string",
+      "propertyName": "userId"
     },
     {
-      "propertyName": "signalsPayload",
       "description": "",
-      "preferredDataType": "string",
+      "isExpanded": true,
       "preferredControlType": "textField",
-      "isExpanded": true
+      "preferredDataType": "string",
+      "propertyName": "signalsPayload"
     },
     {
-      "propertyName": "action",
+      "description": "",
+      "isExpanded": true,
+      "preferredControlType": "textField",
+      "preferredDataType": "string",
+      "propertyName": "action"
+    },
+    {
+      "propertyName": "userName",
       "description": "",
       "preferredDataType": "string",
       "preferredControlType": "textField",
       "isExpanded": true
     }
   ],
-  "flowColor": "#CACED3",
-  "savedDate": 1682524703361,
+  "flowColor": "#e4e2e1",
+  "savedDate": 1685596137503,
   "variables": [],
   "connections": []
 }
