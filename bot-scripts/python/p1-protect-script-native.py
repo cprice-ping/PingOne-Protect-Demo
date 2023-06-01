@@ -43,7 +43,7 @@ options.add_experimental_option("excludeSwitches", ["enable-automation"])
 options.add_experimental_option('useAutomationExtension', False)
 
 # Block the loading of the script
-options.add_argument("--host-resolver-rules=MAP assets.pingone.com 127.0.0.1")
+# options.add_argument("--host-resolver-rules=MAP assets.pingone.com 127.0.0.1")
 
 browser = webdriver.Chrome(options=options)
 
@@ -104,7 +104,11 @@ try:
     # Output the HIGH Predictors
     element = wait.until(EC.presence_of_element_located((By.ID, 'predictorsHigh')))
     print("HIGH Predictors: ", element.get_attribute("innerText"))
+
+    # Output the HIGH Predictors
+    element = wait.until(EC.presence_of_element_located((By.ID, 'predictorsMed')))
+    print("MED Predictors: ", element.get_attribute("innerText"))
 except:
-    print("P1 Protect response too too long")
+    print("P1 Protect response took too long")
 
 browser.quit()
