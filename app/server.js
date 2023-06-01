@@ -118,7 +118,7 @@ function getProtectDecision(ipAddress, sdkpayload, username, userAgent, cb){
           "signals": {
               "data": sdkpayload // Signals SDK payload from Client
           }
-      },
+        },
         "flow": { 
             "type": "AUTHENTICATION" 
         },
