@@ -1,6 +1,6 @@
 FROM python:3.11
 
-LABEL version="0.0.1"
+LABEL version="0.0.4"
 LABEL description="Python \ Selenium script"
 LABEL maintainer="Chris Price <cprice@pingidentity.com>"
 
