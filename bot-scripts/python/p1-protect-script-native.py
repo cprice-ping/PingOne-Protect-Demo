@@ -22,7 +22,7 @@ time.sleep(random.randint(1,5))
 # Note: If using Docker, the image can't be running on `locahost` - deploy into k8s \ Azure \ AWS \ etc
 startUrl = os.getenv('STARTURL')
 if not startUrl:
-    startUrl = "http://localhost:3000/loginForm.html"
+    startUrl = "https://cprice-p1-protect.ping-devops.com/loginForm.html"
 
 print("Connecting to: ", startUrl)
 
