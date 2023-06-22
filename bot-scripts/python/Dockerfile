@@ -1,6 +1,6 @@
 FROM python:3.11
 
-LABEL version="0.0.4"
+LABEL version="0.0.1"
 LABEL description="Python \ Selenium script"
 LABEL maintainer="Chris Price <cprice@pingidentity.com>"
 
@@ -18,11 +18,11 @@ RUN apt-get install -y google-chrome-stable
 
 COPY ./requirements.txt /app/
 COPY ./chromedriver /app/
-COPY ./p1-protect-script-dv.py /app/
+COPY ./p1-protect-script-dv-logon.py /app/
 WORKDIR /app
 
 RUN pip install --upgrade pip
 
 RUN pip install -r requirements.txt
 
-CMD ["python", "./p1-protect-script-dv.py"]
+CMD ["python", "./p1-protect-script-dv-logon.py"]
