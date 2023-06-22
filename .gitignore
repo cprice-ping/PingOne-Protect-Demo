@@ -41,3 +41,4 @@ terraform.rc
 .DS_Store
 *.hcl
 *.log
+bot-scripts/python/registeredUsers.json
