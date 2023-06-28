@@ -30,10 +30,12 @@ options.add_argument("--disable-blink-features=AutomationControlled")
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-web-security")
 options.add_argument("--disable-xss-auditor")
-options.add_argument('--headless')
+# Uncomment this line to display the browser as the script runs
+# options.add_argument('--headless')
 
 options.add_experimental_option("excludeSwitches", ["enable-automation"])
 options.add_experimental_option('useAutomationExtension', False)
+##
 
 def setUserAgent():
     # Get new User-Agent
@@ -118,7 +120,7 @@ f = open("registeredUsers.json", "a")
 for user in userDetails['results']:
 
     browser = webdriver.Chrome(options=options)
-    wait = WebDriverWait(browser, 3)
+    wait = WebDriverWait(browser, 5)
 
     try:
         setUserAgent()
@@ -129,9 +131,9 @@ for user in userDetails['results']:
         time.sleep(0.3)
         moveMouse(element)
 
+        # Switch the random.me email address to mailinator so that NewDevice emails can be seen
         userEmail = user['email'].replace("example.com", "mailinator.com")
 
-        # startForm(user['email'])
         startForm(userEmail)
 
         # Check to see if we're on the Register page
