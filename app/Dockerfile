@@ -1,5 +1,5 @@
 
-FROM node:lts-slim as builder
+FROM node:20.15.0-slim as builder
 
 LABEL version="0.0.10"
 LABEL description="Demo app showing PingOne Protect integration"
