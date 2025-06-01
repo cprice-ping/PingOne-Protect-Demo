@@ -11,7 +11,7 @@
     "fastify": "^4.15.0",
     "@fastify/formbody": "^7.4.0",
     "@fastify/static": "^6.10.1",
-    "@fastify/cookie": "^8.3.0",
+    "@fastify/cookie": "^9.2.0",
     "btoa": "^1.2.1",
     "dotenv": "16.3.1"
   },
